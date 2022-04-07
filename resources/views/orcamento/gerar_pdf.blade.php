@@ -286,7 +286,7 @@ background-color: #f7f7ff;
                                             </h3>
                                      <td class="unit">R$ {{$item->Preco_Produto}}</td>
                                         <td class="qty"> {{$item->pivot->Quantidade}}</td>
-                                        <td class="total">R$ Total </td> 
+                                        <td class="total">R$ {{$total1}} </td> 
                                     </tr>
                                     @endforeach
                      
