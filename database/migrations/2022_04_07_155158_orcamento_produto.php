@@ -21,9 +21,9 @@ class OrcamentoProduto extends Migration
      
      
                $table->unsignedInteger('orcamento_id');
-               $table->foreign('orcamento_id')->references('id')->on('orcamentos');
+               $table->foreign('orcamento_id')->references('id')->on('orcamentos')->onDelete('cascade');
                $table->unsignedInteger('produto_id');
-               $table->foreign('produto_id')->references('id')->on('produtos');
+               $table->foreign('produto_id')->references('id')->on('produtos')->onDelete('cascade');
          });
      }
     

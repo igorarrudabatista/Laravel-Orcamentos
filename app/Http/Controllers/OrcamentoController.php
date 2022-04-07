@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Orcamento;
 use App\Models\Empresa;
 
+
 use App\Models\Produto;
 use Symfony\Component\Console\Input\Input;
 
@@ -218,11 +219,13 @@ class OrcamentoController extends Controller
 
         $produto = Produto::all();
 
+
         //Total 1  Quantidade X Preco do Produto
+            $qtd = $orcamento->produto->get_quantidade; 
+
     
-      //      $qtd = $orcamento->Validade; 
-       //     $precoproduto = $orders->produto->Preco_Produto;
-      //      $total1 = $qtd - $precoproduto;
+            $precoproduto = $order->Preco_Produto;
+            $total1 = $qtd - $precoproduto;
 
 
         

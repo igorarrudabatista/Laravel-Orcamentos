@@ -255,45 +255,44 @@ background-color: #f7f7ff;
                                 </div>
                             </div> 
 
-
+                            
                             <table>
-
+                                
                                 <thead>
                                     <tr>
                                         <th>PRODUTO</th>
                                         <th class="text-left"> </h2> <br>
-                                    </th>
-
+                                        </th>
+                                        
                                         <th class="text-right">PREÇO UND.</th>
                                         <th class="text-right">QUANTIDADE</th>
-                                        <th class="text-right">TOTAL</th>
+                                        <th class="text-left">TOTAL</th>
                                     </tr>
-                                
+                                    
                                 </thead>
-
+                                
                                 @foreach($order->produto as $item)
                                 <tbody>
-                                    <tr>
-                                       
-                                      
-                                        <td class="no">{{$order->id}}</td>
-                                        <td class="text-left">
+                                    <tr>                                      
+                                        
+                                        <td class="no">{{$item->id}}</td>
+                                        <td class="text-left">{{$item->Nome_Produto}} </td>
                                             <h3>
                                              
 
 
-                                                    @endforeach
+                                                  
 										</a>
                                             </h3>
                                      <td class="unit">R$ {{$item->Preco_Produto}}</td>
                                         <td class="qty"> {{$item->pivot->Quantidade}}</td>
                                         <td class="total">R$ Total </td> 
                                     </tr>
-                       @endforeach
-                             
+                                    @endforeach
+                     
                                 </tbody>
 
-                                {{-- <tfoot>
+                                <tfoot>
                                     <tr>
                                         <td colspan="2"></td>
                                         <td colspan="2">SUBTOTAL</td>
@@ -302,20 +301,22 @@ background-color: #f7f7ff;
                                     <tr>
                                         <td colspan="2"></td>
                                         <td colspan="2">TAXA </td>
-                                        <td>R$ {{$orcamento->Taxas}}</td>
+                                        <td>R$ {{$order->Taxas}}</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2"></td>
                                         <td colspan="2">DESCONTOS </td>
-                                        <td> R$ {{$orcamento->Taxas}}</td>
+                                        <td> R$ {{$order->Taxas}}</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2"></td>
                                         <td colspan="2">TOTAL</td>
-                                        <td>R$ {{$total2}}</td>
-                                    </tr> --}}
+                                        <td>R$ </td>
+                                    </tr> 
                                 </tfoot>
                             </table>
+                            @endforeach
+                             
                             <div class="thanks">Obrigado!</div>
                             <div class="notices">
                                 <div>Mensagem:</div>
