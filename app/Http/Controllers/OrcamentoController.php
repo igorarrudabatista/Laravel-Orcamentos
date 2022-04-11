@@ -6,8 +6,6 @@ use App\Models\Empresa_cliente;
 use Illuminate\Http\Request;
 use App\Models\Orcamento;
 use App\Models\Empresa;
-
-
 use App\Models\Produto;
 use Symfony\Component\Console\Input\Input;
 
@@ -222,10 +220,11 @@ class OrcamentoController extends Controller
 
 
         //Total 1  Quantidade X Preco do Produto
-            $qtd = $orcamento->Preco_Produto; 
-            $precoproduto = $orcamento->Quantidade;
+         //   $qtd = $produto->P; 
+        //   
+// $qtd = $produto->    precoproduto = $orcamento->Quantidade;
            // $precoproduto = $order->Preco_Produto;
-            $total1 = $qtd + $precoproduto;
+         //   $total1 = $qtd + $precoproduto;
 
 
         
@@ -247,13 +246,13 @@ class OrcamentoController extends Controller
 
         return view('orcamento.gerar_pdf', [
             'empresa_cliente' => $empresa_cliente,
-            'orcamento' => $orcamento,
-            'minha_empresa' => $minha_empresa,
-            'produto' => $produto,
-            'orders' => $orders,
-         //'taxas' => $taxas,
-            'total1' => $total1,
-        //  'total2' => $total2
+            'orcamento'       => $orcamento,
+            'minha_empresa'   => $minha_empresa,
+            'produto'         => $produto,
+            'orders'          => $orders,
+         //'taxas'            => $taxas,
+        //    'total1'          => $total1,
+        //  'total2'          => $total2
         ]);
     }
 
