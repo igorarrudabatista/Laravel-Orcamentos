@@ -251,7 +251,7 @@ class OrcamentoController extends Controller
             'produto'         => $produto,
             'orders'          => $orders,
          //'taxas'            => $taxas,
-        //    'total1'          => $total1,
+        //    'total1'        => $total1,
         //  'total2'          => $total2
         ]);
     }
