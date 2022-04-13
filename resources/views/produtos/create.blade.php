@@ -49,7 +49,6 @@
         </button>
       </div>
     </div>
-    <div class="products-area-wrapper ">
      
 
 
@@ -83,7 +82,7 @@
     <div class="col-md-3 mb-4">
       <label for="validationDefault04"> Produto em Estoque? </label>
       <select name="Estoque_Produto" id="Estoque_Produto" class="form-control">
-        <option value="=Não"> Não </option>
+        <option value="Não"> Não </option>
         <option value="Sim"> Sim </option>
       </select>    
     </div> 
@@ -96,8 +95,24 @@
       </select>    
     </div> </div>
     <div class="col-md-6 mb-4">
-    <input type="file" id="image" name="image" class="form-control-file" />
+ 
+
+    
+    <div class="upload">
+      <input type="file" title="" id="image" name="image"  class="drop-here">
+      <div class="text text-drop">Sua Logo</div>
+      <div class="text text-upload">Enviando</div>
+      <svg class="progress-wrapper" width="300" height="300">
+        <circle class="progress" r="115" cx="150" cy="150"></circle>
+      </svg>
+      <svg class="check-wrapper" width="130" height="130">
+        <polyline class="check" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
+      </svg>
+      <div class="shadow"></div>
     </div>
+
+
+
   <div class="form-group">
     <div class="form-check">
    

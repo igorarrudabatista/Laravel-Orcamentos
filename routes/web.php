@@ -72,3 +72,13 @@ Route::get('/orcamento/gerar_pdf/{id}',     [OrcamentoController::class, 'gerar_
 Route::get('/orcamento/pdf',                [PdfController::class,       'geraPdf']); //gerar o PDF de orçamentos
 
 
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

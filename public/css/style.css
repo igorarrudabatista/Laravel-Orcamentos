@@ -64,7 +64,7 @@ body, html {
 body {
   overflow: hidden;
   font-family: "Poppins", sans-serif;
-  background-color: var(--app-bg);
+  background-color: var(--app5-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -131,7 +131,7 @@ body {
   height: 100%;
   width: 4px;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 414px) {
   .sidebar {
     display: none;
   }

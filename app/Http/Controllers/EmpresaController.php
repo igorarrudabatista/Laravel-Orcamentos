@@ -11,6 +11,12 @@ class EmpresaController extends Controller
 
     public function create (){
 
+
+        // if (Empresa::table('empresas')->where('id', 1)->count() == 0) {
+        
+
+        // }
+
         return view ('minha_empresa.form_empresa');
         }
 
@@ -55,6 +61,8 @@ class EmpresaController extends Controller
 
     public function show() {
         
+
+
         $criar_empresa = Empresa::all();
 
         $search = request('search');

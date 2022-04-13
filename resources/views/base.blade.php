@@ -7,6 +7,8 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/upload-style.css">
+<link rel="stylesheet" href="/css/dash-style.css">
 
 </head>
 <body>
@@ -70,9 +72,9 @@
     </ul>
     <div class="account-info">
       <div class="account-info-picture">
-        <img src="https://images.unsplash.com/photo-1527736947477-2790e28f3443?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTE2fHx3b21hbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60" alt="Account">
+        <img src="{{ Auth::user()->profile_photo_url }}" alt="Account">
       </div>
-      <div class="account-info-name">Monica G.</div>
+      <div class="account-info-name"> {{ Auth::user()->name }}</div>
       <button class="account-info-more">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
       </button>
@@ -90,6 +92,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
   <script  src="/js/script.js"></script>
+  <script  src="/js/upload-script.js"></script>
 
 <script> 
 

@@ -3,7 +3,7 @@
 @section('content')
   <div class="app-content">
     <div class="app-content-header">
-      <h1 class="app-content-headerText">Cadastro da empresa de Clientes</h1>
+      <h1 class="app-content-headerText">Cadastre aqui a sua empresa</h1>
       <button class="mode-switch" title="Switch Theme">
         <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
           <defs></defs>
@@ -50,7 +50,18 @@
     </div>
     <div class="products-area-wrapper ">
      
+      @if (session('msg'))
+      <center>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <p class="msg">
+   <strong>Mensagem:</strong> {{session('msg')}} 
+ 
 
+ 
+ </div>
+ 
+ 
+        @endif
 
 
     <form action="/minha_empresa" method="POST" enctype="multipart/form-data">
@@ -86,24 +97,43 @@
       <input type="text" class="form-control" id="Site" name="Site"  required>
     </div>
     
-    <div class="col-md-6 mb-4">
-    <input type="file" id="image" name="image" class="form-control-file" />
-    </div>
-  <div class="form-group">
-    <div class="form-check">
-   
-
-      
     
-  </div>
-  <button class="btn btn-primary" type="submit">Cadastrar Produto</button>
-</form>
-
-
-
+  
+   
+      {{-- <div class="container">
+        <div class="form-group" x-data="{ fileName: '' }">
+          <div class="input-group shadow">
+            <span class="input-group-text px-3 text-muted"><i class="fas fa-image fa-lg"></i></span>
+            <input type="file" x-ref="file" @change="fileName = $refs.file.files[0].name" name="img[]" class="d-none">
+            <input type="text" class="form-control form-control-lg" placeholder="Upload Image" x-model="fileName">
+            <button class="browse btn btn-primary px-4" type="button" x-on:click.prevent="$refs.file.click()"><i class="fas fa-image"></i> Browse</button>
+          </div>
+        </div>
+      </div>
+       --}}
+      
+       <div class="upload">
+        <input type="file" title="" id="image" name="image"  class="drop-here">
+        <div class="text text-drop">Sua Logo</div>
+        <div class="text text-upload">Enviando</div>
+        <svg class="progress-wrapper" width="300" height="300">
+          <circle class="progress" r="115" cx="150" cy="150"></circle>
+        </svg>
+        <svg class="check-wrapper" width="130" height="130">
+          <polyline class="check" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
+        </svg>
+        <div class="shadow"></div>
       </div>
     </div>
   </div>
 </div>
+
+  <button class="btn btn-primary" type="submit">Cadastrar</button>
+</form>
+
+
+
+   
+
 <!-- partial -->
 @endsection
