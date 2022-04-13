@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <center> <img src="https://webmonkey.com.br/wp-content/uploads/2022/03/Group-4-1.png" </center>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
