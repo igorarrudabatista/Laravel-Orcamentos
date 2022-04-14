@@ -124,12 +124,14 @@
             <tbody>
               <tr id="product0">
                 <td>
-                  <select name="products[]"  class="form-control">
+                  <select name="products[]"  class="form-control id_select2_example "  id="id_select2_example">
                     <option value="">-- Selecione o produto --</option>
                      @foreach ($produto as $produtos)
-                    <option value="{{$produtos->id}}"  > {{$produtos->Nome_Produto}} - R$ {{$produtos->Preco_Produto}} 
+                    <option value="{{$produtos->id}}" data-img_src="/img/produtos/{{$produtos->image}}">  
+                       {{$produtos->Nome_Produto}} - R$ {{$produtos->Preco_Produto}} 
+                      @endforeach 
                     </option>
-                    @endforeach 
+                    
                   </select>
                 </td>
                 <td>
@@ -137,18 +139,11 @@
 
                   <input type="number" name="quantities[]"  class="form-control" value="1" />
                 </td>
-<!-- 
-                <td>
-
-
-                  <input type="number" name="items[]" id="Valor" class="form-control"  />
-                </td> -->
 
               </tr>
               <tr id="product1"></tr>
             </tbody>
           </table>
-
 
 
             <div class="row">
@@ -158,7 +153,7 @@
               </div>
             </div>
 
-<br><br>
+            <br><br>
      
 
           <div class="form-row">
@@ -232,5 +227,13 @@
 </div>
 </div>
 </div>
+
+<script type="text/javascript">
+  function swapImage(){
+    var image = document.getElementById("imageToSwap");
+    var dropd = document.getElementById("dlist");
+    image.src = dropd.value;	
+  };
+  </script>
 <!-- partial -->
 @endsection
