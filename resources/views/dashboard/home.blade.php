@@ -174,7 +174,7 @@ border-bottom-right-radius: 12px;
           
         </div>
         <div class="card__img"></div>
-        <a href="#" class="card_link">
+        <a href="{{asset('/minha_empresa/form_empresa') }}" class="card_link">
            <div class="card__img--hover"></div>
          </a>
         <div class="card__info">
@@ -182,7 +182,7 @@ border-bottom-right-radius: 12px;
           <h3 class="card__title">Sua empresa</h3>
           <span class="card__by">Informações: 
             @foreach($empresa as $empresas)
-            <a href="#" class="card__author" title="author">{{$empresas->Nome_Empresa}}</a></span>
+            <a href="{{asset('/empresa/show_clientes') }}" class="card__author" title="author">{{$empresas->Nome_Empresa}}</a></span>
             @endforeach
         </div>
       </article>
@@ -197,7 +197,7 @@ border-bottom-right-radius: 12px;
           
         </div>
         <div class="card__img"></div>
-        <a href="#" class="card_link">
+        <a href="{{asset('/empresa/show_clientes') }}" class="card_link">
            <div class="card__img--hover"></div>
          </a>
         <div class="card__info">
@@ -216,7 +216,7 @@ border-bottom-right-radius: 12px;
           
         </div>
         <div class="card__img"></div>
-        <a href="#" class="card_link">
+        <a href="{{asset('/produtos/produtos') }}" class="card_link">
            <div class="card__img--hover"></div>
          </a>
         <div class="card__info">
@@ -235,13 +235,12 @@ border-bottom-right-radius: 12px;
           
         </div>
         <div class="card__img"></div>
-        <a href="#" class="card_link">
+        <a href="{{asset('/orcamento/show_orcamento') }}" class="card_link">
            <div class="card__img--hover"></div>
          </a>
         <div class="card__info">
           <span class="card__category"> Travel</span>
           <h3 class="card__title">Orçamentos</h3>
-          <span class="card__by">by <a href="#" class="card__author" title="author">John Doe</a></span>
         </div>
       </article>  
         
