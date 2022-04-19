@@ -88,7 +88,7 @@
     </div>
     <div class="col-md-3 mb-3">
       <label for="validationDefault03">Endereço </label>
-      <input type="text" class="form-control" id="Endereço" name="Endereço" value="{{$editar_empresa->Endereço}}"  required>
+      <input type="text" class="form-control" id="Endereco" name="Endereco" value="{{$editar_empresa->Endereço}}"  required>
     </div>
     <div class="col-md-3 mb-3">
       <label for="validationDefault03">Estado </label>

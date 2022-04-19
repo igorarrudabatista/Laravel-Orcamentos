@@ -24,10 +24,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'home']);
 
 Route::get('base', function () {
-    return view('base');
+    return view('base')->middleware('auth.basic');
 }); 
 
-Route::get('/dashboard/home',               [HomeController::class,     'home']);
+Route::get('/dashboard/home',               [HomeController::class,     'home'])->middleware('auth.basic');
 
 
 //Cadastro de Produtos
@@ -78,7 +78,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', function () {return view('dashboard'); 
+        })->name('dashboard');
 });
+

@@ -128,7 +128,7 @@
               <tr id="product0">
                 <td>
                   <select name="products[]"  class="form-control id_select2_example "  id="id_select2_example">
-                    <option value="{{ $produto->id}}">-- Selecione o produto --</option>
+                    <option value="">-- Selecione o produto --</option>
                     @foreach ($produto as $produtos)
                    <option value="{{$produtos->id}}" data-img_src="/img/produtos/{{$produtos->image}}">  
                       {{$produtos->Nome_Produto}} - R$ {{$produtos->Preco_Produto}} 
@@ -140,7 +140,7 @@
                 <td>
 
 
-                  <input type="number" name="quantities[]"  class="form-control" value= "{{$editar_orcamento->Quantidade}}"  />
+                  <input type="number" name="quantities[]"  class="form-control" value= "" required />
                 </td>
 
               </tr>
@@ -163,7 +163,7 @@
 
             <div class="col-md-2 mb-3">
               <label for="validationDefault02"><b> Data </b></label>
-              <input type="date" class="form-control" id="Data" name="Data" value= "{{$editar_orcamento->Data}}">
+              <input type="date" class="form-control" id="Data" name="Data" value= "{{$editar_orcamento->Data}}" required>
             </div>
 
             <div class="col-md-2 mb-3">
@@ -172,7 +172,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend2">Dias</span>
                 </div>
-                <input type="text" class="form-control" id="Validade" name="Validade" value= "{{$editar_orcamento->Validade}}"  >
+                <input type="text" class="form-control" id="Validade" name="Validade" value= "{{$editar_orcamento->Validade}}"  required>
               </div>
             </div>
 
@@ -182,7 +182,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend2">Meses/Dias</span>
                 </div>
-                <input type="text" class="form-control" id="Garantia" name="Garantia" value= "{{$editar_orcamento->Garantia}}" >
+                <input type="text" class="form-control" id="Garantia" name="Garantia" value= "{{$editar_orcamento->Garantia}}" required>
               </div>
             </div>
 
@@ -207,7 +207,7 @@
 
             <div class="col-md-3 mb-3">
               <label for="validationDefault03">Descrição do Orçamento </label>
-              <textarea rows="5" class="form-control" id="Descricao" name="Descricao" value= "{{$editar_orcamento->Descricao}}"> </textarea>
+              <textarea rows="5" class="form-control" id="Descricao" name="Descricao" value="{{$editar_orcamento->Descricao}}" required> </textarea>
             </div>
           </div>
 
@@ -215,11 +215,8 @@
 
             <div class="col-md-12 mb-4">
 
-            <button class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">Editar Orçamento</button> 
+            <button class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">Editar Orçamento</button>
 
-            
-
-              
             </div>
           </div>
     </form>
