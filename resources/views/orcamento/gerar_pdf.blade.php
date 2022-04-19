@@ -284,9 +284,10 @@
                                                       
                                             </a>
                                                 </h3>
-                                         <td class="unit">R$ {{$total1= $item->Preco_Produto}}</td>
-                                            <td class="qty"> {{$total2 = $item->pivot->Quantidade}}</td>
-                                            <td class="total">R$ {{$total = (int)$total2 * (int)$total1}}</td>
+
+                                         <td class="unit">R$ {{$preco= $item['Preco_Produto']}}</td>
+                                            <td class="qty"> {{$quantidade = $item->pivot['Quantidade'] }}</td>
+                                            <td class="total">R$ {{$total1 = (int)$preco * (int)$quantidade}}</td>
     
                                         </tr>
                                         
@@ -297,22 +298,23 @@
                                         <tr>
                                             <td colspan="2"></td>
                                             <td colspan="2">SUBTOTAL</td>
-                                            <td>R$ {{$subtotal= $total}}</td>
+                                            <td>R$ {{ $subtotal = $total1 += $total1}}</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"></td>
                                             <td colspan="2">TAXA </td>
-                                            <td>R$ {{$order->Taxas}}</td>
+                                            <td>R$ {{$taxa = $order->Taxas}}</td>
                                         </tr>
+
                                         <tr>
                                             <td colspan="2"></td>
                                             <td colspan="2">DESCONTOS </td>
-                                            <td> R$ {{$order->Taxas}}</td>
+                                            <td> R$ {{$desconto = $order->Taxas}}</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"></td>
                                             <td colspan="2">TOTAL</td>
-                                            <td>R$ </td>
+                                            <td>R$ {{$total = $subtotal + $taxa -$desconto}}</td>
                                         </tr> 
                                     </tfoot>
                                 </table>
