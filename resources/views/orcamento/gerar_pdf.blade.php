@@ -225,27 +225,25 @@
                                 <div class="col company-details">
                                     <h2 class="name">
                                         
-                                        @foreach ($orders as $order)           
-                                                    {{$order->empresa->Nome_Empresa ?? ''}}
+                                                    {{$orcamento->empresa->Nome_Empresa ?? ''}}
                                         </a>
                                         </h2>
-                                        <div>{{$order->empresa->Cnpj ?? ''}}</div>
-                                        <div>{{$order->empresa->Telefone ?? ''}}</div>
-                                        <div>{{$order->empresa->Email ?? ''}}</div>
+                                        <div>{{$orcamento->empresa->Cnpj ?? ''}}</div>
+                                        <div>{{$orcamento->empresa->Telefone ?? ''}}</div>
+                                        <div>{{$orcamento->empresa->Email ?? ''}}</div>
                                     </div>
                                 </div>
                             </header>
                             <main>
-    
                      
     
     
                             <div class="row contacts">
                                     <div class="col invoice-to">
                                         <div class="text-gray-light">Orçamento para: </div>
-                                        <h2 class="to"> {{$order->empresa_cliente->Nome_Empresa ?? ''}} </h2>
-                                        <div class="address"> endereço:{{$order->empresa_cliente->Endereco ?? ''}} | {{$order->empresa_cliente->Cidade ?? ''}} - {{$order->empresa_cliente->Estado}} </div>
-                                        <div class="email"><a href="mailto:john@example.com">{{$order->empresa_cliente->Email ?? ''}}</a>
+                                        <h2 class="to"> {{$orcamento->empresa_cliente->Nome_Empresa ?? ''}} </h2>
+                                        <div class="address"> endereço:{{$orcamento->empresa_cliente->Endereco ?? ''}} | {{$orcamento->empresa_cliente->Cidade ?? ''}} - {{$orcamento->empresa_cliente->Estado}} </div>
+                                        <div class="email"><a href="mailto:john@example.com">{{$orcamento->empresa_cliente->Email ?? ''}}</a>
                                         </div>
                                     </div>
                                     <div class="col invoice-details">
@@ -270,8 +268,9 @@
                                         
                                     </thead>
     
-                                    
-                                    @foreach($order->produto as $item)
+                                    <?php $total2 = 0 ;?>
+
+                                    @foreach($orcamento->produto as $item)
                                     <tbody>
                                         <tr>                                      
                                             
@@ -285,9 +284,9 @@
                                             </a>
                                                 </h3>
 
-                                         <td class="unit">R$ {{$preco= $item['Preco_Produto']}}</td>
+                                         <td class="unit">R$ {{$preco= $item['Preco_Produto']}} </td>
                                             <td class="qty"> {{$quantidade = $item->pivot['Quantidade'] }}</td>
-                                            <td class="total">R$ {{$total1 = (int)$preco * (int)$quantidade}}</td>
+                                            <td class="total"> R$ {{$total1 = $preco * (int)$quantidade}} <?php $total2 += $total1; ?> </td>
     
                                         </tr>
                                         
@@ -298,23 +297,23 @@
                                         <tr>
                                             <td colspan="2"></td>
                                             <td colspan="2">SUBTOTAL</td>
-                                            <td>R$ {{ $subtotal = $total1 += $total1}}</td>
+                                            <td>R$ {{$total2}}</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"></td>
                                             <td colspan="2">TAXA </td>
-                                            <td>R$ {{$taxa = $order->Taxas}}</td>
+                                            <td>R$ {{$taxa = $orcamento->Taxas}}</td>
                                         </tr>
 
                                         <tr>
                                             <td colspan="2"></td>
                                             <td colspan="2">DESCONTOS </td>
-                                            <td> R$ {{$desconto = $order->Taxas}}</td>
+                                            <td> R$ {{$desconto = $orcamento->Desconto}}</td>
                                         </tr>
                                         <tr>
                                             <td colspan="2"></td>
                                             <td colspan="2">TOTAL</td>
-                                            <td>R$ {{$total = $subtotal + $taxa -$desconto}}</td>
+                                            <td>R$ {{$total = $total2 + $taxa -$desconto}}</td>
                                         </tr> 
                                     </tfoot>
                                 </table>
@@ -337,5 +336,4 @@
     </body>
     </html>
     
-    @endforeach
     

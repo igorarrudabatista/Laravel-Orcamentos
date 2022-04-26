@@ -140,10 +140,12 @@ class OrcamentoController extends Controller
 
     public function gerar_pdf($id)
     {
-        $orders = Orcamento::with('produto')->get();
-
-        $orcamento = Orcamento::findOrFail($id);
-
+        $orcamento = Orcamento::with('produto')->findOrFail($id);
+        // dd($orcamento->produto[0]->Nome_Produto);
+       //dd($orcamento->Empresa_cliente);
+      
+        
+       // $orders = $orcamento::with('produto')->get();
         $empresa_cliente = Empresa_cliente::all();
 
         $minha_empresa = Empresa::all();
@@ -159,7 +161,7 @@ class OrcamentoController extends Controller
             'orcamento'       => $orcamento,
             'minha_empresa'   => $minha_empresa,
             'produto'         => $produto,
-            'orders'          => $orders,
+           // 'orders'          => $orders,
 
         ]);
     }

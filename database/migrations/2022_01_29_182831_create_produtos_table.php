@@ -18,7 +18,7 @@ class CreateProdutosTable extends Migration
             $table->string('Nome_Produto');
             $table->string('Categoria_Produto');
             $table->string('Status_Produto');
-            $table->string('Preco_Produto');
+            $table->decimal('Preco_Produto');
             $table->string('Estoque_Produto');
             $table->string('Quantidade_Produto');
 

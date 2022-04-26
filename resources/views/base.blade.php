@@ -140,7 +140,7 @@
             var data = $(obj.element).data();
             var text = $(obj.element).text();
             if(data && data['img_src']){
-              img_src = data['img_src'];
+              img_src =data['img_src'];
               template = $("<div><br><br><img src=\"" + img_src + "\" style=\"background-color:#0000;width:100px;border-radius:8px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\"/> <br><br>  <p style=\"font-weight:600;font-size:14px;text-align:left;\">" + text + "</p> <br> </div>");
               return template;
             }
@@ -158,7 +158,7 @@
       'templateSelection': custom_template1,
       'templateResult':    custom_template2,
     }
-    $('#id_select2_example').select2(options)({
+    $('.id_select2_example').select2(options)({
       placeholder: "What???????", //placeholder
 
     });
