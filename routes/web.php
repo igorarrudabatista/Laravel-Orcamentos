@@ -66,6 +66,9 @@ Route::get('/orcamento/edit/{id}',          [OrcamentoController::class, 'edit']
 Route::put('/orcamento/update/{id}',        [OrcamentoController::class, 'update']);
 Route::delete('/orcamento/{id}',            [OrcamentoController::class, 'destroy']);
 Route::get('/orcamento/gerar_pdf/{id}',     [OrcamentoController::class, 'gerar_pdf']);
+Route::get('/orcamento/modelos/modelo1/{id}',     [OrcamentoController::class, 'modelo1']);
+Route::get('/orcamento/modelos/modelo2/{id}',     [OrcamentoController::class, 'modelo2']);
+Route::get('/orcamento/modelos/modelo3/{id}',     [OrcamentoController::class, 'modelo3']);
 
 
 
