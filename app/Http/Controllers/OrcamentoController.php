@@ -222,6 +222,61 @@ class OrcamentoController extends Controller
 
         ]);
     }
+    
+    public function modelo3($id)
+    {
+        $orcamento = Orcamento::with('produto')->findOrFail($id);
+        // dd($orcamento->produto[0]->Nome_Produto);
+       //dd($orcamento->Empresa_cliente);
+      
+        
+       // $orders = $orcamento::with('produto')->get();
+        $empresa_cliente = Empresa_cliente::all();
+
+        $minha_empresa = Empresa::all();
+
+        $produto = Produto::all();
+
+
+
+
+
+        return view('orcamento.modelos.modelo3', [
+            'empresa_cliente' => $empresa_cliente,
+            'orcamento'       => $orcamento,
+            'minha_empresa'   => $minha_empresa,
+            'produto'         => $produto,
+           // 'orders'          => $orders,
+
+        ]);
+    }
+    public function modelo4($id)
+    {
+        $orcamento = Orcamento::with('produto')->findOrFail($id);
+        // dd($orcamento->produto[0]->Nome_Produto);
+       //dd($orcamento->Empresa_cliente);
+      
+        
+       // $orders = $orcamento::with('produto')->get();
+        $empresa_cliente = Empresa_cliente::all();
+
+        $minha_empresa = Empresa::all();
+
+        $produto = Produto::all();
+
+
+
+
+
+        return view('orcamento.modelos.modelo4', [
+            'empresa_cliente' => $empresa_cliente,
+            'orcamento'       => $orcamento,
+            'minha_empresa'   => $minha_empresa,
+            'produto'         => $produto,
+           // 'orders'          => $orders,
+
+        ]);
+    }
 
     public function destroy($id)
     {

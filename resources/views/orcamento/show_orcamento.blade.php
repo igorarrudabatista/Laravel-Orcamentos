@@ -147,7 +147,18 @@
 
         <button type="submit" class="btn btn-danger delete-btn"> <ion-icon name="trash-outline"> </ion-icon>Deletar</button>
 </div>
-<a href="/orcamento/gerar_pdf/{{$order->id}}" class="btn btn-info edit-btn"> <ion-icon name="create-outline"></ion-icon> Gerar PDF </a>
+
+<div class="btn-group" role="group">
+  <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle btn-info edit-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Gerar PDF
+  </button>
+  <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+    <a class="dropdown-item" href="/orcamento/modelos/modelo1/{{$order->id}}">Modelo 1</a>
+    <a class="dropdown-item" href="/orcamento/modelos/modelo2/{{$order->id}}">Modelo 2</a>
+    <a class="dropdown-item" href="/orcamento/modelos/modelo3/{{$order->id}}">Modelo 3</a>
+    <a class="dropdown-item" href="/orcamento/modelos/modelo4/{{$order->id}}">Modelo 4</a>
+  </div>
+</div>
 
       </div>
 @endforeach

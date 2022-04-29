@@ -242,12 +242,12 @@
                                     <div class="col invoice-to">
                                         <div class="text-gray-light">Orçamento para: </div>
                                         <h2 class="to"> {{$orcamento->empresa_cliente->Nome_Empresa ?? ''}} </h2>
-                                        <div class="address"> endereço:{{$orcamento->empresa_cliente->Endereco ?? ''}} | {{$orcamento->empresa_cliente->Cidade ?? ''}} - {{$orcamento->empresa_cliente->Estado}} </div>
+                                        <div class="address"> Endereço:{{$orcamento->empresa_cliente->Endereco ?? ''}} | {{$orcamento->empresa_cliente->Cidade ?? ''}} - {{$orcamento->empresa_cliente->Estado}} </div>
                                         <div class="email"><a href="mailto:john@example.com">{{$orcamento->empresa_cliente->Email ?? ''}}</a>
                                         </div>
                                     </div>
                                     <div class="col invoice-details">
-                                        <h1 class="invoice-id">Número do Orçamento: {{$order->Numero_Orcamento ?? ''}}</h1>
+                                        <h1 class="invoice-id">Número do Orçamento: {{$orcamento->Numero_Orcamento ?? ''}}</h1>
                                         <div class="date">Data: {{$orcamento->Data ?? ''}} </div>
                                         <div class="date">Garantia: {{$orcamento->Garantia ?? ''}}</div>
                                     </div>

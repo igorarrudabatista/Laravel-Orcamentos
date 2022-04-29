@@ -8,6 +8,8 @@ use App\Http\Controllers\{
     PdfController,
     ProdutosController,
     OrcamentoController,
+    InfoController,
+    UsuariosController,
 };
 use Illuminate\Support\Facades\Route;
 
@@ -65,10 +67,18 @@ Route::get('/orcamento/show_orcamento',     [OrcamentoController::class, 'show']
 Route::get('/orcamento/edit/{id}',          [OrcamentoController::class, 'edit']);
 Route::put('/orcamento/update/{id}',        [OrcamentoController::class, 'update']);
 Route::delete('/orcamento/{id}',            [OrcamentoController::class, 'destroy']);
-Route::get('/orcamento/gerar_pdf/{id}',     [OrcamentoController::class, 'gerar_pdf']);
 Route::get('/orcamento/modelos/modelo1/{id}',     [OrcamentoController::class, 'modelo1']);
 Route::get('/orcamento/modelos/modelo2/{id}',     [OrcamentoController::class, 'modelo2']);
 Route::get('/orcamento/modelos/modelo3/{id}',     [OrcamentoController::class, 'modelo3']);
+Route::get('/orcamento/modelos/modelo4/{id}',     [OrcamentoController::class, 'modelo4']);
+
+// Informações
+Route::get('/informacoes',              [InfoController::class, 'home']);
+
+// Usuários
+Route::get('/usuarios',              [UsuariosController::class, 'create']);
+Route::get('/usuarios',              [UsuariosController::class, 'index']);
+Route::post('/usuarios',              [UsuariosController::class, 'store']);
 
 
 
