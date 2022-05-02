@@ -1,113 +1,7 @@
 @extends('base')
 
 @section('content')
-<style>
-    body {
-  background-color: #eff3f6;
-}
 
-.navbar {
-  margin-bottom: 0px !important;
-}
-
-/* Breadcrumbs */
-.breadcrumb {
-  background-color: #1397fb;
-}
-
-.breadcrumb ol {
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-.breadcrumb li {
-  display: inline;
-text-align: -webkit-match-parent;
-}
-
-.breadcrumb li a {
-  color: #ffffff;
-}
-
-/* Table Content */
-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0px 8px;
-}
-
-th {
-    text-align: left;
-    padding: 5px;
-    text-transform: uppercase;
-    font-weight: 100;
-    font-size: 11px;
-    color: #aab3bb;
-}
-
-tr {
-  box-shadow: 1px 1px 1px rgba(228, 228, 228, 0.25);
-}
-
-tr thead {
-  background: transparent !important;
-  border-color: transparent !important;
-}
-
-tr td {
-  background-color: #ffffff;
-  border-bottom: 1px solid #e7e7e7;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-td {
-  padding: 13px;
-}
-
-img {
-  height: 30px;
-}
-
-/* Icons */
-.fa {
-    padding: 0px 9px;
-    color: #c1c4c9;
-    font-size: 1.1em;
-}
-
-.arrow-right {
-  font-size: 1.9em;
-  float: right;
-}
-
-
-/* Circle */
-.large {
-  background: #20c73a;
-  width: 18px;
-  height: 18px;
-}
-
-.medium {
-  margin-top: 2px;
-  background: #ffffff;
-  width: 14px;
-  height: 14px;
-}
-
-.small {
-  margin-top: 2px;
-  background: #20c73a;
-  width: 10px;
-  height: 10px;
-}
-
-.circle {
-  display: inline-block;
-  text-align: center;
-  border-radius:50%;
-}</style>
 
 
 <div class="app-content">
@@ -161,7 +55,7 @@ img {
      
       @if (session('msg'))
       <center>
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
       <p class="msg">
    <strong>Mensagem:</strong> {{session('msg')}} 
  
@@ -172,10 +66,10 @@ img {
  
         @endif
 
-        <form method="POST" action="{{ route('register') }}">
+        {{-- <form method="POST" action="{{ route('register') }}">
 
     {{-- <form action="/usuarios" method="POST" enctype="multipart/form-data"> --}}
-      @csrf
+      {{-- @csrf
   <div class="form-row">
     <div class="col-md-4 mb-3">
       <label for="validationDefault01">Nome Completo </label>
@@ -198,7 +92,7 @@ img {
     </div>
 
     <div class="col-md-3 mb-3">
-      <label for="validationDefault03">Digite novamente a Senha </label>
+      <label for="validationDefault03">Confirme a Senha </label>
       <x-jet-input id="password_confirmation " class="block mt-1 w-full form-control" type="password" name="password_confirmation" required autocomplete="new-password" />
     </div>
   </div>
@@ -210,7 +104,7 @@ img {
   <button class="btn btn-primary" type="submit">Cadastrar</button>
 
 
-</div>
+</div> --}} 
 
 
 
@@ -275,7 +169,8 @@ img {
                
                
                 <td class="d-flex align-items-center">
-                     <img src="img/info/igor.jpg" class="rounded-circle" width="40px" > 
+                  <img src="/storage/profile-photos/{{$usu->profile_photo_path }}" width="50px"class="rounded-circle" alt="Account"> 
+
                      <span class="ml-2">{{$usu->name}}</span> </td>
               
               
@@ -285,15 +180,20 @@ img {
                    
                     </div>
                 </td>
-                <td>
-                    <div class="dropdown"> <button class="btn btn-warning btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false"> AÇÃO </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="#">Editar</a></li>
-                            <li><a class="dropdown-item" href="#">Excluir</a></li>
-                            <li><a class="dropdown-item" href="#">Ver</a></li>
-                        </ul>
-                    </div>
-                </td>
+                <form action="/usuarios/{{$usu->id}}" method="POST">
+                  @csrf
+                  @method('DELETE')
+        
+               <td>
+                
+                 
+                  <button type="submit" class="btn btn-danger delete-btn">
+                     <ion-icon name="trash-outline">
+                        </ion-icon>Deletar</button>
+                  </td>   
+                      
+                 
+                  
               
             </tr>
            

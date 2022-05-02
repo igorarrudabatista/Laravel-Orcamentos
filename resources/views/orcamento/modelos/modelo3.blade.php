@@ -53,7 +53,11 @@ body {
         <div>
             <div class="card">
                 <div class="card-header"> Orçamento <strong># {{$orcamento->Numero_Orcamento ?? ''}}</strong>
-                    <div class="pull-right"> <a class="btn btn-sm btn-info" href="#" data-abc="true"><i class="fa fa-print mr-1"></i> Imprimir</a> <a class="btn btn-sm btn-info" href="#" data-abc="true"><i class="fa fa-file-text-o mr-1"></i> Salvar</a>
+                    <div class="pull-right">
+                         <a class="btn btn-sm btn-info" href="#" data-abc="true" value="Print this page" onClick="window.print()">
+                            <i class="fa fa-print mr-1"></i> Imprimir</a>
+                             <a class="btn btn-sm btn-info" href="/orcamento/pdf" data-abc="true">
+                                 <i class="fa fa-file-text-o mr-1"></i> Salvar</a>
                     </div>
                 </div>
                 <div class="card-body">

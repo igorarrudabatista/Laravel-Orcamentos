@@ -77,12 +77,15 @@ Route::get('/informacoes',              [InfoController::class, 'home']);
 
 // Usuários
 Route::get('/usuarios',              [UsuariosController::class, 'create']);
+Route::get('/usuarios/edit/{id}',    [UsuariosController::class, 'edit']);
+Route::get('/usuarios/update/{id}',  [UsuariosController::class, 'update']);
+Route::delete('/usuarios/{id}',      [UsuariosController::class, 'destroy']);
 Route::get('/usuarios',              [UsuariosController::class, 'index']);
-Route::post('/usuarios',              [UsuariosController::class, 'store']);
+Route::post('/usuarios',             [UsuariosController::class, 'store']);
 
 
 
-Route::get('/orcamento/pdf',                [PdfController::class,       'geraPdf']); //gerar o PDF de orçamentos
+Route::get('/orcamento/pdf',                [OrcamentoController::class,       'geraPdf']); //gerar o PDF de orçamentos
 
 
 

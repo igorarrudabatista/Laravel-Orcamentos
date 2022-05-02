@@ -10,12 +10,13 @@ use \PDF;
 class PdfController extends Controller {
     public function geraPdf() {
 
-        $empresa = Empresa_clientes::all();
-        
-        
-
-        $pdf = PDF::loadView('/produtos/pdf', compact('orcamento'));
-
-        return $pdf->setPaper('a4')->stream('Todos_Produtos.pdf');
+        $data = [
+            'title' => 'Welcome to ItSolutionStuff.com',
+            'date' => date('m/d/Y')
+        ];
+          
+        $pdf = PDF::loadView('/orcamento/modelos/modelo3', $data);
+    
+        return $pdf->download('itsolutionstuff.pdf');
     }
-}
+    }

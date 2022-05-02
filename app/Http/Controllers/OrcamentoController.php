@@ -8,6 +8,7 @@ use App\Models\Orcamento;
 use App\Models\Empresa;
 use App\Models\Produto;
 use Symfony\Component\Console\Input\Input;
+use PDF;
 
 class OrcamentoController extends Controller
 {
@@ -81,6 +82,7 @@ class OrcamentoController extends Controller
         } else {
             $criar_orcamento = Orcamento::all();
         }
+        
 
         return view('orcamento.show_orcamento', [
             'orders'            => $criar_orcamento,
@@ -284,4 +286,24 @@ class OrcamentoController extends Controller
         Orcamento::findOrFail($id)->delete();
         return redirect('/orcamento/show_orcamento')->with('msg', 'Orçamento deletado com sucesso!');
     }
+
+
+        public function geraPdf($id) {
+
+
+            $orcamento = Orcamento::with('produto')->findOrFail($id);
+            $empresa_cliente = Empresa_cliente::all();
+            $minha_empresa = Empresa::all();
+            $produto = Produto::all();
+    
+            $pdf = PDF::loadView('orcamento.modelos.modelo3',[
+                'orcamento'=> $orcamento,
+                'empresa_cliente'=>$empresa_cliente,
+                'minha_empresa'=>$minha_empresa,
+                'produto'=>$produto
+            ]);
+    
+            return $pdf->download('invoice.pdf');
+
+         }
 }
