@@ -12,6 +12,8 @@ class Empresa extends Model
     protected $guarded = [];
 
 
+
+
     public function orcamento(){
         return $this->belongsTo(Orcamento::class);
     }

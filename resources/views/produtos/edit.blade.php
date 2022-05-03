@@ -96,15 +96,31 @@
         <option value="1" {{$editar_produto-> private==1 ? "selected='selected'" : "" }}  > Ativo </option>
       </select>    
     </div> </div>
-    <div class="col-md-6 mb-4">
-    <input type="file" id="image" name="image" class="form-control-file" />
-    <br> 
-    <img src="/img/produtos/{{$editar_produto->image}}" width="200px" />
-    </div>
-  <div class="form-group">
-    <div class="form-check">
-   
 
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3 mb-4">
+        
+        <img src="/img/produtos/{{$editar_produto->image}}" width="200px" />
+        </div>
+         <div class="col-md-3 mb-4">
+
+            <div class="upload">
+              <input type="file" title="" id="image" name="image"  class="drop-here">
+              <div class="text text-drop">Imagem</div>
+              
+              <div class="text text-upload">Enviando</div>
+              <svg class="progress-wrapper" width="300" height="300">
+                <circle class="progress" r="115" cx="150" cy="150"></circle>
+              </svg>
+              <svg class="check-wrapper" width="130" height="130">
+                <polyline class="check" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
+              </svg>
+              <div class="shadow"></div>
+
+     
+    
       
     
   </div>
@@ -113,9 +129,5 @@
 
 
 
-      </div>
-    </div>
-  </div>
-</div>
 <!-- partial -->
 @endsection

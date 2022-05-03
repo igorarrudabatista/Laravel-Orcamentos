@@ -44,9 +44,8 @@
 
             </ul>
       </li>
-
-      <li class="dropdown sidebar-list-item ">
-        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> 
+      <li class="sidebar-list-item">
+        <a href="/usuarios">
           <svg class="svg-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather ">
             <path fill="none" d="M14.023,12.154c1.514-1.192,2.488-3.038,2.488-5.114c0-3.597-2.914-6.512-6.512-6.512
               c-3.597,0-6.512,2.916-6.512,6.512c0,2.076,0.975,3.922,2.489,5.114c-2.714,1.385-4.625,4.117-4.836,7.318h1.186
@@ -55,13 +54,11 @@
               c-2.943,0-5.328-2.385-5.328-5.327c0-2.943,2.385-5.328,5.328-5.328c2.943,0,5.328,2.385,5.328,5.328
               C15.328,9.982,12.943,12.367,10,12.367z"></path>
           </svg>
-        <span class="nav-label"> Usuários</span>
-<span class="caret"> </span> </a>
-        <ul class="dropdown-menu sidebar-list">
-            <li class="sidebar-list-item"> <a href="/usuarios">Cadastrar Usuários</a></li>
-
-        </ul>
-  </li>
+          <span>Usuários</span>
+        </a>
+      </li>
+  
+     
 
       <li class="dropdown sidebar-list-item ">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> 

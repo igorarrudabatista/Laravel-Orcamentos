@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Empresa;
+use App\Models\Orcamento;
 
 class EmpresaController extends Controller
 {
@@ -11,15 +12,21 @@ class EmpresaController extends Controller
 
     public function create (){
 
+        $orcamento = Orcamento::all();
+        $criar_empresa = Empresa::all();
+
+     //   dd($minha_empresa);
 
         // if (Empresa::table('empresas')->where('id', 1)->count() == 0) {
         
+        return view('minha_empresa.form_empresa', 
+        [
+        'criar_empresa'=> $criar_empresa,
+        'orcamento' => $orcamento
+        
+        ]);
 
-        // }
-
-        return view ('minha_empresa.form_empresa');
         }
-
 
     public function store (Request $request) {
 
@@ -61,8 +68,6 @@ class EmpresaController extends Controller
 
     public function show() {
         
-
-
         $criar_empresa = Empresa::all();
 
         $search = request('search');
@@ -75,7 +80,8 @@ class EmpresaController extends Controller
             }
         
 
-        return view('minha_empresa.show_empresa', ['empresa'=> $criar_empresa, 'search' => $search]);
+        return view('minha_empresa.show_empresa', 
+        ['empresa'=> $criar_empresa, 'search' => $search]);
 
     }
 

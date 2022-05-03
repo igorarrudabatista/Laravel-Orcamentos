@@ -6,7 +6,7 @@
 
 <div class="app-content">
     <div class="app-content-header">
-      <h1 class="app-content-headerText">Cadastro de usuários</h1>
+      <h1 class="app-content-headerText">Usuários Cadastrados</h1>
       <button class="mode-switch" title="Switch Theme">
         <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
           <defs></defs>
@@ -58,149 +58,85 @@
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
       <p class="msg">
    <strong>Mensagem:</strong> {{session('msg')}} 
+      @endif 
+ 
+    </div>
+ 
  
 
- 
- </div>
- 
- 
-        @endif
-
-        {{-- <form method="POST" action="{{ route('register') }}">
-
-    {{-- <form action="/usuarios" method="POST" enctype="multipart/form-data"> --}}
-      {{-- @csrf
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label for="validationDefault01">Nome Completo </label>
-      <x-jet-input id="name" class="block mt-1 w-full form-control" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-    </div>
-        <div class="col-md-4 mb-3">
-      <label for="validationDefaultUsername">E-mail</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="block mt-1 w-full input-group-text" id="inputGroupPrepend2">@</span>
-        </div>
-        <x-jet-input id="email" class="block mt-1 w-full form-control" type="email" name="email" :value="old('email')" required />
-      </div>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="col-md-3 mb-3">
-      <label for="validationDefault03">Senha </label>
-      <x-jet-input id="password" class="block mt-1 w-full form-control" type="password" name="password" required autocomplete="new-password" />
-    </div>
-
-    <div class="col-md-3 mb-3">
-      <label for="validationDefault03">Confirme a Senha </label>
-      <x-jet-input id="password_confirmation " class="block mt-1 w-full form-control" type="password" name="password_confirmation" required autocomplete="new-password" />
-    </div>
-  </div>
-
-    <div class="form-row">
-
-    <div class="col-md-6 mb-6">
-
-  <button class="btn btn-primary" type="submit">Cadastrar</button>
-
-
-</div> --}} 
-
-
-
-{{-- <div class="container">
-  <div class="form-group" x-data="{ fileName: '' }">
-    <div class="input-group shadow">
-      <span class="input-group-text px-3 text-muted"><i class="fas fa-image fa-lg"></i></span>
-      <input type="file" x-ref="file" @change="fileName = $refs.file.files[0].name" name="img[]" class="d-none">
-      <input type="text" class="form-control form-control-lg" placeholder="Upload Image" x-model="fileName">
-      <button class="browse btn btn-primary px-4" type="button" x-on:click.prevent="$refs.file.click()"><i class="fas fa-image"></i> Browse</button>
-    </div>
-  </div>
-</div>
---}}
-
-{{-- <div class="upload">
-  <input type="file" title="" id="image" name="image"  class="drop-here">
-  <div class="text text-drop">Foto</div>
-  <div class="text text-upload">Enviando</div>
-  <svg class="progress-wrapper" width="300" height="300">
-    <circle class="progress" r="115" cx="150" cy="150"></circle>
-  </svg>
-  <svg class="check-wrapper" width="130" height="130">
-          <polyline class="check" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
-        </svg>
-        <div class="shadow"></div>
-      </div>
-    </div>
-    
-  </div> --}}
   
-</form>
+  <div class="products-area-wrapper tableView">
+    <div class="products-header">
+      <div class="product-cell image">
+        Imagem
+        <button class="sort-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"/></svg>
+        </button>
+      </div>
+      <div class="product-cell category">Nome<button class="sort-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"/></svg>
+        </button></div>
+
+      <div class="product-cell status-cell">Data de Criação<button class="sort-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"/></svg>
+        </button></div>
+
+      {{-- <div class="product-cell sales">Ativo<button class="sort-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"/></svg>
+        </button></div> --}}
+    
+        <div class="product-cell what">Ação<button class="sort-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"/></svg>
+        </button></div>
+
+     
+    </div>
+
+
+    @foreach($user as $usu )
+
+    <div class="products-row">
+      <button class="cell-more-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+      </button>
+
+        <div class="product-cell image">
+          <img src="/storage/profile-photos/{{$usu->profile_photo_path }}" width="50px"class="rounded-circle" alt="Account"> 
+        </div>
+
+        <div class="product-cell category"><span class="cell-label">Criado em:</span>{{$usu->name}}</div>
+
+
+      <div class="product-cell category"><span class="cell-label">Criado em:</span>{{$usu->created_at}}</div>
+      {{-- <div class="product-cell status-cell">
+        <span class="cell-label">Status:</span>
+        {{-- @if ($usu->Status_usu == '1') --}}
+        {{-- <span class="status active">Ativo</span>      
+        @else
+      <span class="status disabled">Desativado</span>
+        @endif
+      </div> --}} 
+      <div class="product-cell what"><span class="cell-label">Ação:</span>  
+  
+  
+        <form action="/usuarios/{{$usu->id}}" method="POST">
+            
+              @csrf
+            @method('DELETE')
+
+            <button type="submit" class="btn btn-danger delete-btn"> <ion-icon name="trash-outline"> </ion-icon>Deletar</button>
+          </form>
+      </div>
+    </div>
+@endforeach
+
+      </div>
 
 
 
 
-<hr>
-<link rel="stylesheet" href="css/usuarios-style.css">
-<div class="container mt-5">
-    <table class="table table-borderless main">
-        <thead>
-            <tr class="head">
-                <th scope="col" class="ml-2">
-                </th>
-                <th scope="col">ID</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Data de Criação</th>
-                <th scope="col">Ativo</th>
-                <th scope="col">Ação</th>
-            </tr>
-        </thead>
-
-        @foreach($user as $usu )
-
-        <tbody>
-            <tr class="rounded bg-white">
-                <th scope="row">
-                </th>
-                <td class="order-color">{{$usu->id}}</td>
-                
-               
-               
-               
-                <td class="d-flex align-items-center">
-                  <img src="/storage/profile-photos/{{$usu->profile_photo_path }}" width="50px"class="rounded-circle" alt="Account"> 
-
-                     <span class="ml-2">{{$usu->name}}</span> </td>
-              
-              
-                     <td>{{$usu->created_at}}</td>
-                     <td>
-                     <button class="btn btn-success btn-sm " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false"> ATIVO </button>
-                   
-                    </div>
-                </td>
-                <form action="/usuarios/{{$usu->id}}" method="POST">
-                  @csrf
-                  @method('DELETE')
-        
-               <td>
-                
-                 
-                  <button type="submit" class="btn btn-danger delete-btn">
-                     <ion-icon name="trash-outline">
-                        </ion-icon>Deletar</button>
-                  </td>   
-                      
-                 
-                  
-              
-            </tr>
-           
-        </tbody>
 
 
-        @endforeach
 
 
     </table>

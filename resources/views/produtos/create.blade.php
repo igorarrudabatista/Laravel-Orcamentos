@@ -100,7 +100,7 @@
     
     <div class="upload">
       <input type="file" title="" id="image" name="image"  class="drop-here">
-      <div class="text text-drop">Sua Logo</div>
+      <div class="text text-drop">Imagem</div>
       <div class="text text-upload">Enviando</div>
       <svg class="progress-wrapper" width="300" height="300">
         <circle class="progress" r="115" cx="150" cy="150"></circle>

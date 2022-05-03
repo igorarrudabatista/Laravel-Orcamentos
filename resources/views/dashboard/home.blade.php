@@ -7,7 +7,7 @@
 
 
 .cards {
-    width: 90%;
+    width: 100%;
     display: -webkit-flex;
     justify-content: center;
     -webkit-justify-content: center;

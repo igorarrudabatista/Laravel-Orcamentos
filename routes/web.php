@@ -23,10 +23,26 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+
+    
+
+    Route::get('/dashboard', function () {return view('dashboard'); 
+    })->name('dashboard');
+
+    Route::get('/', [HomeController::class, 'home']);
+
+
+
 Route::get('/', [HomeController::class, 'home']);
 
 Route::get('base', function () {
-    return view('base')->middleware('auth.basic');
+    return view('base');
 }); 
 
 Route::get('/dashboard/home',               [HomeController::class,     'home'])->middleware('auth.basic');
@@ -89,12 +105,5 @@ Route::get('/orcamento/pdf',                [OrcamentoController::class,       '
 
 
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {return view('dashboard'); 
-        })->name('dashboard');
 });
 
