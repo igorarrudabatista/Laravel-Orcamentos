@@ -301,7 +301,7 @@ form input[type=submit] {
       <center>
       <div class="alert alert-primar alert-dismissible fade show" role="alert">
       <p class="msg">
-   <strong>Mensagem:</strong> {{session('msg')}} 
+   <strong>Mensagem:</strong> {{session('msg')}}  </center>
       @endif
       </div>
 {{-- 
@@ -318,16 +318,19 @@ form input[type=submit] {
 <div class="cards">
 	
 	<div class="contact">Clique para editar as informções da sua empresa</div>
+  <br>
 	<div class="contact-form">
 		<a href="#" class="close"><i class="fa fa-times"></i></a>
     <form action="/minha_empresa/form_empresa/update/{{$criar_empresas->id}}" method="POST" enctype="multipart/form-data">
       @csrf
       @method('PUT')
-			<div class="control"><input type="text"  value="{{$criar_empresas->Nome_Empresa}}" name="Nome_Empresa"/></div>
-			<div class="control"><input type="text"  value="{{$criar_empresas->Cnpj}}" name="Cnpj"/></div>
-			<div class="control"><input type="text"  value="{{$criar_empresas->Telefone}}" name="Telefone"/></div>
-			<div class="control"><input type="text"  value="{{$criar_empresas->Email}}" name="Email"/></div>
-			<div class="control"><input type="text"  value="{{$criar_empresas->Site}}" name="Site"/></div>
+			<div class="control">
+        <input type="text"  value="{{$criar_empresas->Nome_Empresa}}" name="Nome_Empresa" placeholder="Nome Empresa"/></div>
+			<div class="control">
+        <input type="text"  value="{{$criar_empresas->Cnpj}}" name="Cnpj" placeholder="CNPJ" onkeypress="$(this).mask('00.000.000/0000-00')"/></div>
+			<div class="control"><input type="text"  value="{{$criar_empresas->Telefone}}" name="Telefone" placeholder="Telefone" onkeypress="$(this).mask('(00) 00000-00009')" /></div>
+			<div class="control"><input type="text"  value="{{$criar_empresas->Email}}" name="Email"placeholder="E-mail@dominio.com" /></div>
+			<div class="control"><input type="text"  value="{{$criar_empresas->Site}}" name="Site"placeholder="www.site.com" /></div>
      
       <div class="upload">
         <input type="file" title="" id="image" name="image"  class="drop-here">
@@ -433,7 +436,6 @@ form input[type=submit] {
       OIIII ;)sdsdsdsd
       OIIII ;)sdsdsdsd
       OIIII ;)sdsdsdsd
-
     
 <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 

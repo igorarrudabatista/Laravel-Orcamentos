@@ -16,11 +16,11 @@ class CreateEmpresasTable extends Migration
         Schema::create('empresas', function (Blueprint $table) {
             $table->id();
             $table->string('Nome_Empresa');
-            $table->string('Cnpj');
-            $table->string('Email');
-            $table->string('Telefone');
-            $table->string('Site');
-            $table->string('image');
+            $table->string('Cnpj')->nullable();
+            $table->string('Email')->nullable();
+            $table->string('Telefone')->nullable();
+            $table->string('Site')->nullable();;
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

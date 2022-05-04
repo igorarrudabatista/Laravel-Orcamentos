@@ -16,14 +16,14 @@ class CreateEmpresaClientesTable extends Migration
         Schema::create('empresa__clientes', function (Blueprint $table) {
             $table->id();
             $table->string('Nome_Empresa');
-            $table->string('Cnpj');
-            $table->string('Email');
-            $table->string('Telefone');
-            $table->string('Site');
-            $table->string('Endereco');
-            $table->string('Cidade');
-            $table->string('Estado');
-            $table->string('image');
+            $table->string('Cnpj')->nullable();
+            $table->string('Email')->nullable();
+            $table->string('Telefone')->nullable();
+            $table->string('Site')->nullable();
+            $table->string('Endereco')->nullable();
+            $table->string('Cidade')->nullable();
+            $table->string('Estado')->nullable();
+            $table->string('image')->nullable();
 
 
             $table->timestamps();
