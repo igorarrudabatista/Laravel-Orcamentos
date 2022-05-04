@@ -39,9 +39,6 @@ class EmpresaController extends Controller
         $criar_empresa -> Site               = $request->Site;
         $criar_empresa -> image              = $request->image;
 
-   
-
-
 
                 // Imagem do produto upload
         if ($request->hasFile('image')&& $request->file('image')->isValid()){
@@ -62,7 +59,7 @@ class EmpresaController extends Controller
 
         $criar_empresa = Empresa::all();
 
-        return redirect('/')->with('msg', 'Empresa cadastrada com sucesso'); 
+        return redirect('minha_empresa/form_empresa')->with('msg', 'Empresa cadastrada com sucesso'); 
     
     }
 
@@ -80,9 +77,52 @@ class EmpresaController extends Controller
             }
         
 
-        return view('minha_empresa.show_empresa', 
+        return view('minha_empresa.form_empresa', 
         ['empresa'=> $criar_empresa, 'search' => $search]);
 
     }
+
+
+  
+
+    public function update (Request $request, $id){
+
+                        $criar_empresa = Empresa::find($id);
+                        $criar_empresa -> Nome_Empresa       = $request->Nome_Empresa;
+                        $criar_empresa -> Cnpj               = $request->Cnpj;
+                        $criar_empresa -> Email              = $request->Email;
+                        $criar_empresa -> Telefone           = $request->Telefone;
+                        $criar_empresa -> Site               = $request->Site;
+                        $criar_empresa -> image              = $request->image;
+
+                        // Imagem do produto upload
+                        if ($request->hasFile('image')&& $request->file('image')->isValid()){
+
+                            $requestImage = $request -> image;
+                
+                            $extension = $requestImage-> extension();
+                
+                            $imageName = md5($requestImage -> getClientOriginalName() . strtotime("now")) . "." . $extension;
+                
+                            $request -> image->move(public_path('img/empresa'), $imageName);
+                
+                           $criar_empresa -> image = $imageName;
+                
+                        }
+                        $criar_empresa->save();
+        //$criar_empresa =    Empresa::findOrFail($request->id) ->update($request->all());
+
+     
+
+
+
+
+
+        $criar_empresa = Empresa::all();
+
+        return redirect('minha_empresa/form_empresa')->with('msg', 'Empresa editada com sucesso!');
+
+    }
+
 
     }

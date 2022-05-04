@@ -4,69 +4,250 @@
 
 <style>
 
-.body-form{
-    width: 90%;
-    height:90%;
-    align-items: center;
-    border-radius: 20px;
-    margin-top: 0%;
-    margin-bottom: 3%;
-    
-    box-shadow:3px 10px 50px gray;
-    /* height: auto; */
-}
-.box-profil{
-    display: flex;
-    box-shadow: 1px 1px 5px gray;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-    height: 55px;
-    width:55px;
-    background: linear-gradient(0deg, rgba(247,127,52,1) 0%, rgba(217,147,131,1) 34%, rgba(218,52,131,1) 95%);
+* {
+  box-sizing: border-box;
 }
 
-.profil-rounded{
-    height: 50px;
-    width:50px;
-    border-radius: 50%;
-}
+.card-body{
+  position: fixed;
+  top: 250px;
 
-.form-animative{
-    transform:translate(0,0)
-}
-.form-image{
-    
-    background-size: cover;
-    background-position: center;
-}
-@media only screen and (max-height:650px){
-    .body-form{
-        margin-top: 50%;
-        height: 650px;
-    }    
-    .form-image{
-        background-size: cover;
-        background-position: center;
-    }
 
 }
-@media only screen and (max-width:990px){
-    .body-form{
-        margin-top: 30%;
-        height: 650px;
-    }    
-    .form-image{
-        background-size: cover;
-        background-position: center;
-    }
-
+.contact {
+  position: absolute;
+  top: 30px;
+  left: 50px;
+  z-index: 6;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 15px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.1);
+  line-height: 1;
+  cursor: pointer;
+  text-shadow: 0 1px 0px rgba(255, 255, 255, 0.1);
+}
+.contact-form {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: white;
+  z-index: 5;
+  padding: 80px 50px;
+  transform: translate3d(-100%, 0, 0);
+  transition: 0.3s ease;
+  border-radius: 5px;
+}
+.contact-form.active {
+  transform: translate3d(0, 0, 0);
+}
+.contact-form .close {
+  color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  right: 30px;
+  top: 30px;
 }
 
-.corner-rounded{
-    border-radius: 200px !important;
+.cards {
+  margin: auto;
+  background: #fefefe;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 3px 5px 20px rgba(0, 0, 0, 0.2);
+  width: 768px;
+  height: 800px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 30px;
+}
+.cards .card {
+  display: inline-block;
+  margin-right: 20px;
+}
+.cards .card-toggle {
+  z-index: 4;
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: block;
+  text-align: center;
+  line-height: 1.8;
+  font-size: 24px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+}
+.cards .card-toggle.active {
+  color: white;
+  border-color: white;
+}
+.cards .card-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transition: -webkit-clip-path 1s ease;
+  padding: 100px 0 0;
+  overflow: hidden;
+  border-radius: 5px;
+}
+.cards .card-content .row {
+  display: table;
+  width: 100%;
+  height: 100%;
+  margin-top: -900px;
+}
+.cards .card-content .col {
+  width: 100%;
+  height: 100%;
+  display: table-cell;
+  transition: 0.3s ease 0.3s;
+  transform: translate3d(0, 0, 0);
+  vertical-align: top;
+}
+.cards .card-content .col h2 {
+  font-weight: 300;
+  font-size: 3em;
+  line-height: 1;
+  margin: 0 0 30px;
+}
+.cards .card-content .col h2 strong {
+  font-weight: 700;
+  display: block;
+}
+.cards .card-content .col img {
+  max-width: 90%;
+  width: 100%;
+}
+.cards .card-content .col.left {
+  transform: translate3d(0, 0, 0);
+  opacity: 0;
+  padding-left: 50px;
+}
+.cards .card-content .col.right {
+  transform: translate3d(100px, 0, 0);
+  opacity: 0;
+  padding-left: 30px;
+}
+.cards .card.active .col {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+.cards #overview .card-toggle {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  opacity: 1;
+  color: white;
+}
+.cards #overview .card-content {
+  background-color: #efefef;
+  -webkit-clip-path: circle(0% at 91.5% 75px);
+}
+.cards #overview.active .card-toggle {
+  opacity: 0;
+}
+.cards #overview.active .card-content {
+  -webkit-clip-path: circle(270% at 91.5% 75px);
+}
+.cards #overview .right {
+  background: url(https://babademoca.com.br/site/wp-content/uploads/2021/07/Turamissu.jpg) no-repeat bottom right;
+  background-size: contain;
+}
+.cards #dribbble .card-content, .cards #behance .card-content, .cards #linkedin .card-content, .cards #twitter .card-content {
+  color: white;
+}
+.cards #dribbble .card-content p, .cards #behance .card-content p, .cards #linkedin .card-content p, .cards #twitter .card-content p {
+  color: rgba(255, 255, 255, 0.8);
+}
+.cards #dribbble .card-content {
+  background-color: #F46899;
+  -webkit-clip-path: circle(0% at 76px 88%);
+  clip-path: circle(0% at 50px 88%);
+}
+.cards #dribbble.active .card-content {
+  -webkit-clip-path: circle(270% at 76px 88%);
+  clip-path: circle(270% at 50px 88%);
+}
+.cards #behance .card-content {
+  background-color: #2F98D1;
+  -webkit-clip-path: circle(0% at 150px 88%);
+  clip-path: circle(0% at 150px 88%);
+}
+.cards #behance.active .card-content {
+  -webkit-clip-path: circle(270% at 150px 88%);
+  clip-path: circle(270% at 150px 88%);
+}
+.cards #linkedin .card-content {
+  background-color: #03679B;
+  -webkit-clip-path: circle(0% at 220px 88%);
+  clip-path: circle(0% at 220px 88%);
+}
+.cards #linkedin.active .card-content {
+  -webkit-clip-path: circle(270% at 220px 88%);
+  clip-path: circle(270% at 220px 88%);
+}
+.cards #twitter .card-content {
+  background-color: #7FD0ED;
+  -webkit-clip-path: circle(0% at 292px 88%);
+  clip-path: circle(0% at 292px 88%);
+}
+.cards #twitter.active .card-content {
+  -webkit-clip-path: circle(270% at 292px 88%);
+  clip-path: circle(270% at 292px 88%);
+}
+
+form .control {
+  position: relative;
+  margin-bottom: 10px;
+  padding-top: 20px;
+}
+form .control label {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  transition: 0.3s ease;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 14px;
+}
+form .control.submit {
+  text-align: right;
+}
+form input, form textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #e3e3e3;
+  outline: none;
+  padding: 10px 0;
+}
+form .filled label, form input:focus + label, form textarea:focus + label {
+  top: 0;
+  font-size: 12px;
+}
+form textarea {
+  height: 100px;
+}
+form input[type=submit] {
+  width: auto;
+  background-color: #1811de;
+  padding: 10px 40px;
+  color: white;
+  border-radius: 40px;
 }
   </style>
+  
+
   <div class="app-content">
     <div class="app-content-header">
       <h1 class="app-content-headerText">Cadastre aqui a sua empresa</h1>
@@ -118,283 +299,143 @@
      
       @if (session('msg'))
       <center>
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <div class="alert alert-primar alert-dismissible fade show" role="alert">
       <p class="msg">
    <strong>Mensagem:</strong> {{session('msg')}} 
       @endif
       </div>
+{{-- 
 
-      {{-- @if ($Produto->Status_Produto == '1')
-      <span class="status active">Ativo</span>      
-      @else
-    <span class="status disabled">Desativado</span>
-      @endif --}}
 
       @foreach ($orcamento as $orcamentos)
 
-      @if ($orcamentos->empresa_id == '1') 
+      @if ($orcamentos->empresa_id == 1)  --}}
      
-
-      <div class="body-form d-flex justify-content-center align-middle position-relative">
-
-        <div class="container h-100">
-            <div class="row h-100 d-flex flex-column flex-lg-row flex-xl-row">
-                
-                <div id="form2" class="form-animative form-image col col-xl-6 h-100 col-lg-6 justify-content-center align-middle"
-                    style="background-image:url('https://cdn.pixabay.com/photo/2016/12/29/18/44/background-1939128__480.jpg');background-repeat: no-repeat;z-index: 2;"></div>
-                    <div id="form"  style="padding:0px;"
-                    class="form-animative col col-xl-6 col-lg-6 d-flex flex-column h-100 justify-content-center" >
-                        <!-- text -->
-
-                        @foreach ($criar_empresa as $criar_empresas)
-
-                        <div id="here"  class="formtest h-100 d-none">
-                            <div class="d-flex flex-column h-100">
-                                <div class="display-4">Hello There,</div>
-                            <div class="h4 text-center">We got some information about you.</div>
-                            <div class="container mt-3 d-flex flex-column justify-content-around" style="flex:1 1 auto">
-                                <div class="text-center h1 field">
-                                    John Doe
-                                </div>
-                                <div class="row flex-row ">
-                                    <div class="col-4">
-                                        <i class="material-icons" style="font-size:36px">AQUI!!!!!</i>
-                                    </div>
-                                    <div class="pt-2 field">xxx@gmail.com</div>
-                                </div>
-                                <div class="row flex-row">
-                                    <div class="col-4">
-                                        <i class="fas fa-birthday-cake" style="font-size: 36px;"></i>
-                                    </div>
-                                    <div class="pt-2 field">10-1-2000</div>
-                                </div>
-                                <div class="row flex-row">
-                                    <div class="col-4">
-                                        <i class="fas fa-transgender-alt" style="font-size: 36px;"></i>
-                                    </div>
-                                    <div class="pt-2 field">Male</div>
-                                </div>
-                            </div>
-                            </div>
-                            
-                        </div>
-                        <!-- /text -->
-                        <form id="here" class="formtest m-3"> 
-                            <div class="row">
-                            <div class="form-group col-4 col-xl-6 col-lg-6"> 
-                                <label for="name">Empresa</label>
-                                <input type="text" class="form-control corner-rounded" id="name" name="nama"  value="{{$criar_empresas->Nome_Empresa}}">
-                            </div>
-                            <div class="form-group col-4 col-xl-6 col-lg-6 ">
-                                <label for="emailAddress">Cnpj</label>
-                                <input type="email" class="form-control corner-rounded" name="email" id="emailAddress" value="{{$criar_empresas->Cnpj}}"
-                                    aria-describedby="emailHelp" placeholder="Masukan Email">
-                            </div>
-                            <div class="form-group col-4 col-xl-6 col-lg-6 ">
-                                <label for="BirthDate">E-mail</label>
-                                <input class="form-control corner-rounded" name="date" id="BirthDate" value="{{$criar_empresas->Email}}" aria-describedby="emailHelp"
-                                   type="email">
-                            </div>
-                            <div class="form-group col-4 col-xl-6 col-lg-6 ">
-                                <label for="BirthDate">Telefone</label>
-                                <input class="form-control corner-rounded" name="date" id="BirthDate" value="{{$criar_empresas->Email}}" aria-describedby="emailHelp"
-                                   type="text">
-                            </div>
-                            <div class="form-group col-4 col-xl-6 col-lg-6 ">
-                                <label for="BirthDate">Site</label>
-                                <input class="form-control corner-rounded" name="date" id="BirthDate" value="{{$criar_empresas->Email}}" aria-describedby="emailHelp"
-                                   type="text">
-                            </div>
-                            <div class="form-group col-6 col-xl-12 col-lg-12 ">
-                                <label for="BirthDate">Logo</label>
-
-
-
-                                <div class="upload">
-                                  <input type="file" title="" id="image" name="image"  class="drop-here">
-                                  <div class="text text-drop"><img src="/img/empresa/{{$criar_empresas->image}}" width="100%" />
-                                  </div>
-                                  
-                                  <div class="text text-upload">Enviando</div>
-                                  <svg class="progress-wrapper" width="300" height="300">
-                                    <circle class="progress" r="115" cx="150" cy="150"></circle>
-                                  </svg>
-                                  <svg class="check-wrapper" width="130" height="130">
-                                    <polyline class="check" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
-                                  </svg>
-                                  <div class="shadow"></div>
-                    
-                                </div></div></div>
-                          
-                         
-                        <div class="d-flex justify-content-end mt-3">
-                            <button type="button" class="container btn btn-primary corner-rounded" onclick="saving()">Save</button>
-                        </div>
-                        <!-- <div class="row"></div> -->
-                      
-                        </form>
-                    </div>
-            </div>
-
-
-        </div>
-
-    </div>
-
-    @endforeach
-
-      {{-- <div class="container">
-
-        <h1 class="brand"><span>Phoenix Web Dessssign</span></h1>
-      
-        <div class="wrapper">
-      
-          <!-- COMPANY INFORMATION -->
-          <div class="company-info">
-            @foreach ($criar_empresa as $criar_empresas)
-            <h3>{{$criar_empresas->Nome_Empresa}}</h3>
-
-      
-            <ul>
-              <li><i class="fa fa-road"></i>{{$criar_empresas->Cnpj}}</li>
-              <li><i class="fa fa-phone"></i> {{$criar_empresas->Telefone}}</li>
-              <li><i class="fa fa-envelope"></i> {{$criar_empresas->Email}}</li>
-            </ul>
-          </div>
-            
-          @endforeach
-          <!-- End .company-info -->
-      
-          <!-- CONTACT FORM -->
-          <div class="contact">
-            <h3>E-mail Us</h3>
-      
-            <form id="contact-form">
-      
-              <p>
-                <label>Empresa</label>
-                <input type="text" name="name" id="name" value="{{$criar_empresas->Nome_Empresa}}" required>
-              </p>
-      
-              <p>
-                <label>CNPJ</label>
-                <input type="text" name="company" id="company" value="{{$criar_empresas->Cnpj}}">
-              </p>
-      
-              <p>
-                <label>E-mail</label>
-                <input type="email" name="email" id="email" value="{{$criar_empresas->Email}}" required>
-              </p>
-      
-              <p>
-                <label>Telefone</label>
-                <input type="text" name="phone" id="phone" value="{{$criar_empresas->Telefone}}" required>
-              </p>
-              <p>
-                <label>Site</label>
-                <input type="text" name="phone" id="phone" value="{{$criar_empresas->Site}}" required>
-              </p>
-      
-              <p class="full">
-                <label>Imagem</label>
-                <input type="file" id="image" name="image" class="form-control-file" />
-                <img src="/img/empresa/{{$criar_empresas->image}}" width="200px" />
-
-              </p>
-
-
-             
-      
-              <p class="full">
-                <button type="submit">Submit</button>
-              </p>
-      
-            </form>
-          
-            <!-- End #contact-form -->
-          </div>
-          <!-- End .contact -->
-      
-        </div>
-        <!-- End .wrapper -->
-      </div>
-      <!-- End .container -->
-      <!-- partial --> --}}
-      
-      @else 
-      
-
-      <form action="/minha_empresa" method="POST" enctype="multipart/form-data">
-        @csrf
-    <div class="form-row">
-      <div class="col-md-4 mb-3">
-        <label for="validationDefault01">Nome da Empresa </label>
-        <input type="text" class="form-control" id="Nome_Empresa" name="Nome_Empresa" required>
-      </div>
-      <div class="col-md-4 mb-3">
-        <label for="validationDefault02">CNPJ</label>
-        <input type="text" class="form-control" id="Cnpj" name="Cnpj" required>
-      </div>
-      <div class="col-md-4 mb-3">
-        <label for="validationDefaultUsername">E-mail</label>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroupPrepend2">@</span>
-          </div>
-          <input type="text" class="form-control" id="Email" name="Email" required>
-        </div>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="col-md-3 mb-3">
-        <label for="validationDefault03">Telefone </label>
-        <input type="text" class="form-control" id="Telefone" name="Telefone"  required>
-      </div>
-  
-      <div class="form-row">
-      <div class="col-md-3 mb-3">
-        <label for="validationDefault03">Site </label>
-        <input type="text" class="form-control" id="Site" name="Site"  required>
-      </div>
-
-      <hr>
-         <div class="upload">
-          <input type="file" title="" id="image" name="image"  class="drop-here">
-          <div class="text text-drop">Sua Logo</div>
-          <div class="text text-upload">Enviando</div>
-          <svg class="progress-wrapper" width="300" height="300">
-            <circle class="progress" r="115" cx="150" cy="150"></circle>
-          </svg>
-          <svg class="check-wrapper" width="130" height="130">
-            <polyline class="check" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
-          </svg>
-          <div class="shadow"></div>
-        </div>
-      </div>
-    </div>
-<hr>
-  
-    <button class="btn btn-primary" type="submit">Cadastrar</button>
-  </form>
-  
-  
-  
-  
-    </div> 
-             
-  @endif
-  @endforeach
-
-
-
-
-
-
-
-
    
+      @foreach ($criar_empresa as $criar_empresas)
+
+   <!-- partial:index.partial.html -->
+<div class="cards">
+	
+	<div class="contact">Clique para editar as informções da sua empresa</div>
+	<div class="contact-form">
+		<a href="#" class="close"><i class="fa fa-times"></i></a>
+    <form action="/minha_empresa/form_empresa/update/{{$criar_empresas->id}}" method="POST" enctype="multipart/form-data">
+      @csrf
+      @method('PUT')
+			<div class="control"><input type="text"  value="{{$criar_empresas->Nome_Empresa}}" name="Nome_Empresa"/></div>
+			<div class="control"><input type="text"  value="{{$criar_empresas->Cnpj}}" name="Cnpj"/></div>
+			<div class="control"><input type="text"  value="{{$criar_empresas->Telefone}}" name="Telefone"/></div>
+			<div class="control"><input type="text"  value="{{$criar_empresas->Email}}" name="Email"/></div>
+			<div class="control"><input type="text"  value="{{$criar_empresas->Site}}" name="Site"/></div>
+     
+      <div class="upload">
+        <input type="file" title="" id="image" name="image"  class="drop-here">
+        <div class="text text-drop">LOGO<img src="/img/empresa/{{$criar_empresas->image}}" width="100%" />
+        </div>
+        
+        <div class="text text-upload">Enviando</div>
+        <svg class="progress-wrapper" width="300" height="300">
+          <circle class="progress" r="115" cx="150" cy="150"></circle>
+        </svg>
+        <svg class="check-wrapper" width="130" height="130">
+          <polyline class="check" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
+        </svg>
+        <div class="shadow"></div>
+      </div>
+      
+
+       <button class="btn btn-primary" type="submit">Salvar</button>
+
+		</form>
+	</div>
+
+  <div class="card w-5">
+    <div class="card-body">
+      <h5 class="card-title">
+        <img src="/img/empresa/{{$criar_empresas->image}}" width="100%" />
+        
+      <h5 class="display-5"> <b> Nome da Empresa: </b> {{$criar_empresas->Nome_Empresa}}</h5>
+                              
+      <p class="card-text"> <b> CNPJ: </b>     {{$criar_empresas->Cnpj}}</p>
+      <p class="card-text"> <b> Telefone: </b> {{$criar_empresas->Telefone}}</p>
+      <p class="card-text"> <b> E-mail: </b>   {{$criar_empresas->Email}}</p>
+      <p class="card-text"> <b> Site: </b>     {{$criar_empresas->Site}}</p>
+
+<hr>
+
+</div>
+  </div>
+	
+
+	<div class="card" id="dribbble">
+		<a class="card-toggle"><i><span class="fa fa-dribbble"></span></i></a>
+		<div class="card-content">
+			<div class="row">
+				<div class="left col">
+					<h2>My <strong>Dribbble</strong></h2>
+					
+					<p>In ipsa reiciendis, eligendi labore dolores delectus facere perferendis ex architecto reprehenderit maxime exercitationem, libero itaque, at voluptatibus! Sit obcaecati repellat incidunt accusantium voluptas suscipit a consequuntur repudiandae nulla eius.</p>
+					
+				</div>
+				<div class="right col"><img src="https://dl.dropboxusercontent.com/u/26808427/cdn/preview.jpg" alt="" /></div>
+			</div>
+		</div>
+	</div> 
+	
+	<div class="card" id="behance">
+		<a class="card-toggle"><i><span class="fa fa-behance"></span></i></a>
+		<div class="card-content">
+			<div class="row">
+				<div class="left col">
+					<h2>My <strong>Behance</strong></h2>
+					<p>Quia fugit animi, iure error veritatis? Ipsa quis, deserunt illum culpa ab id mollitia nesciunt commodi aut dolores vero ipsam ut minima neque nam excepturi corporis obcaecati consequuntur accusantium laborum!</p>
+				</div>
+				<div class="right col"><img src="https://dl.dropboxusercontent.com/u/26808427/cdn/preview.jpg" alt="" /></div>
+			</div>
+		</div>
+	</div>
+	<div class="card" id="linkedin">
+		<a class="card-toggle"><i><span class="fa fa-linkedin"></span></i></a>
+		<div class="card-content">
+			<div class="row">
+				<div class="left col">
+					<h2>My <strong>LinkedIn</strong></h2>
+				
+					<p>Voluptas aliquam, perferendis laboriosam, cumque, autem vero pariatur dolorum tempora sint hic laborum distinctio suscipit magnam, porro provident maxime labore. Porro vel error quaerat consequatur sapiente? Nostrum at voluptatibus necessitatibus.</p>
+				</div>
+				<div class="right col"><img src="https://dl.dropboxusercontent.com/u/26808427/cdn/preview.jpg" alt="" /></div>
+			</div>
+		</div>
+	</div>
+	<div class="card" id="twitter">
+		<a class="card-toggle"><i><span class="fa fa-twitter"></span></i></a>
+		<div class="card-content">
+			<div class="row">
+				<div class="left col">
+					<h2>My <strong>Twitter</strong></h2>
+				
+					<p>Fugit veniam, animi architecto doloribus veritatis vitae sint doloremque possimus quae. Pariatur libero, veniam voluptatibus alias distinctio qui nostrum debitis voluptate amet hic repellat officiis nam quos vel doloremque praesentium.</p>
+				</div>
+				<div class="right col"><img src="https://dl.dropboxusercontent.com/u/26808427/cdn/preview.jpg" alt="" /></div>
+			</div>
+		</div>
+	</div>
+	
+
+
+      OIIII ;)sdsdsdsd
+  
+      
+      
+      
+      @endforeach
+      OIIII ;)sdsdsdsd
+      OIIII ;)sdsdsdsd
+      OIIII ;)sdsdsdsd
+
     
-    
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
    
 
