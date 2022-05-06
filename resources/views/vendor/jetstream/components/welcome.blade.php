@@ -1,19 +1,53 @@
+
+
 <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
     <div>
-        <x-jet-application-logo class="block h-12 w-auto" />
+   <img src="https://webmonkey.com.br/wp-content/uploads/2022/03/Group-4-1.png" class="block h-12 w-auto" /> 
     </div>
 
     <div class="mt-8 text-2xl">
-        Welcome to your Jetstream application!
+        Antes de iniciar, cadaste a sua empresa aqui!
     </div>
 
     <div class="mt-6 text-gray-500">
-        Laravel Jetstream provides a beautiful, robust starting point for your next Laravel application. Laravel is designed
-        to help you build your application using a development environment that is simple, powerful, and enjoyable. We believe
-        you should love expressing your creativity through programming, so we have spent time carefully crafting the Laravel
-        ecosystem to be a breath of fresh air. We hope you love it.
+        <form method="POST" action="/minha_empresa" enctype="multipart/form-data">
+            @csrf
+
+            <div>
+                <x-jet-label for="Nome_Empresa" value="{{ __('Nome da sua Empresa') }}" />
+                <x-jet-input id="Nome_Empresa" class="block mt-1 w-full" type="text" name="Nome_Empresa" :value="old('Nome_Empresa')" required autofocus autocomplete="name" />
+            </div>
+            <div>
+                <x-jet-label for="Cnpj" value="{{ __('CNPJ') }}" />
+                <x-jet-input id="Cnpj" class="block mt-1 w-full" type="text" name="Cnpj" :value="old('Cnpj')" onkeypress="$(this).mask('00.000.000/0000-00')" required autofocus autocomplete="name" />
+            </div>
+            <div>
+                <x-jet-label for="Telefone" value="{{ __('Telefone') }}" />
+                <x-jet-input id="Telefone" class="block mt-1 w-full" type="text" name="Telefone" :value="old('Telefone')" onkeypress="$(this).mask('(00) 00000-00009')" required autofocus autocomplete="name" />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="Email" value="{{ __('E-mail') }}" />
+                <x-jet-input id="Email" class="block mt-1 w-full" type="email" name="Email" :value="old('Email')" required />
+            </div>
+            <div class="mt-4">
+                <x-jet-label for="Site" value="{{ __('Site') }}" />
+                <x-jet-input id="Site" class="block mt-1 w-full" type="text" name="Site" :value="old('Email')" required />
+            </div>
+            
+          
+            <div class="flex items-center justify-end mt-8">
+
+
+                <x-jet-button class="ml-4">
+                    {{ __('Cadastrar') }}
+                </x-jet-button>
+            </div>
+        </form>
     </div>
 </div>
+
+{{-- 
 
 <div class="bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-2">
     <div class="p-6">
@@ -87,4 +121,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
+<script>
+    $( "#Cnpj" ).keypress(function() {
+        $(this).mask('000.000.000-00');
+    });
+</script>

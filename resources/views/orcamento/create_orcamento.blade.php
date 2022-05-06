@@ -212,7 +212,7 @@
 
             <div class="col-md-12 mb-4">
 
-            <button class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">Cadastrar Orçamento</button> 
+            <button class="btn btn-primary" type="submit" value="{{ trans('global.save') }}">Cadastrar Orçamento</button> 
 
             
 

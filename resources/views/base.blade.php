@@ -38,7 +38,8 @@
  <span class="nav-label"> Empresa</span>
  <span class="caret"> </span> </a>
             <ul class="dropdown-menu sidebar-list">
-                <li class="sidebar-list-item"> <a href="/minha_empresa/form_empresa">Cadastrar minha Empresa</a></li>
+                {{-- <li class="sidebar-list-item"> <a href="/cadastrar_empresa">Cadastrar a Minha Empresa</a></li> --}}
+                <li class="sidebar-list-item"> <a href="/minha_empresa/form_empresa">Ver a Minha Empresa</a></li>
                 <li class="sidebar-list-item"> <a href="/empresa/form_empresa_cliente"> Cadastrar Clientes </a></li>
                 <li class="sidebar-list-item"> <a href="/empresa/show_clientes"> Ver Clientes </a></li>
 

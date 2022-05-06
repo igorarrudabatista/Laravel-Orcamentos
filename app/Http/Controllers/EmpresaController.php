@@ -13,7 +13,13 @@ class EmpresaController extends Controller
     public function create (){
 
         $orcamento = Orcamento::all();
-        $criar_empresa = Empresa::all();
+        $criar_empresa = Empresa::get();
+
+
+             
+
+
+
 
      //   dd($minha_empresa);
 
@@ -22,11 +28,12 @@ class EmpresaController extends Controller
         return view('minha_empresa.form_empresa', 
         [
         'criar_empresa'=> $criar_empresa,
-        'orcamento' => $orcamento
+        'orcamento' => $orcamento,
+            
         
         ]);
-
-        }
+    }
+        
 
     public function store (Request $request) {
 

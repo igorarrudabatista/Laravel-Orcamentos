@@ -11,7 +11,7 @@
 
 
 .card {
-  max-width: 640px;
+  max-width: 740px;
   margin: auto;
   overflow-y: auto;
   position: relative;
@@ -26,7 +26,7 @@
 }
 
 .card[data-state="#about"] {
-  height: 450px;
+  height: 550px;
 }
 .card[data-state="#about"] .card-main {
   padding-top: 0;
@@ -366,8 +366,16 @@
     <div class="card-section is-active" id="about">
       <div class="card-content">
         <div class="card-subtitle">SOBRE</div>
-        <p class="card-desc">Whatever tattooed stumptown art party sriracha gentrify hashtag intelligentsia readymade schlitz brooklyn disrupt.
-        </p>
+        <p class="card-desc">Desenvolvedor WEB em frontend e backend. Outros também conhecimentos também em Infraestrutura de Rede, Data Center.
+        </p> <br>
+        <p class="card-desc"> HABILIDADES :
+          Ético,
+          Criativo,
+          Organizado,
+          Flexibilidade em horários,
+          Focado e Concentrado,
+          Trabalho em Equipe,
+          Capacidade de se adaptar,
       </div>
       <div class="card-social">
         <a href="#"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -384,21 +392,21 @@
     </div>
     <div class="card-section" id="experience">
       <div class="card-content">
-        <div class="card-subtitle">EXPERIÊNCIA</div>
+        <div class="card-subtitle">EXPERIÊNCIA </div>
         <div class="card-timeline">
-          <div class="card-item" data-year="2014">
+          <div class="card-item" data-year="2022">
             <div class="card-item-title">Front-end Developer at <span>JotForm</span></div>
             <div class="card-item-desc">Disrupt stumptown retro everyday carry unicorn.</div>
           </div>
-          <div class="card-item" data-year="2016">
+          <div class="card-item" data-year="2021">
             <div class="card-item-title">UI Developer at <span>GitHub</span></div>
             <div class="card-item-desc">Developed new conversion funnels and disrupt.</div>
           </div>
-          <div class="card-item" data-year="2018">
+          <div class="card-item" data-year="2020">
             <div class="card-item-title">Illustrator at <span>Google</span></div>
             <div class="card-item-desc">Onboarding illustrations for App.</div>
           </div>
-          <div class="card-item" data-year="2020">
+          <div class="card-item" data-year="2019">
             <div class="card-item-title">Full-Stack Developer at <span>CodePen</span></div>
             <div class="card-item-desc">Responsible for the encomposing brand expreience.</div>
           </div>

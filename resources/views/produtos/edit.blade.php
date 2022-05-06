@@ -84,8 +84,8 @@
     <div class="col-md-3 mb-4">
       <label for="validationDefault04"> Produto em Estoque? </label>
       <select name="Estoque_Produto" id="Estoque_Produto" value="{{$editar_produto->Estoque_Produto}}" class="form-control">
-        <option value="0"> Não </option>
-        <option value="1" {{$editar_produto-> private==1 ? "selected='selected'" : "" }} > Sim </option>
+        <option value="Não"> Não</option>
+        <option value="Sim" {{$editar_produto-> private==1 ? "selected='selected'" : "" }} > Sim </option>
       </select>    
     </div> 
 
@@ -98,17 +98,14 @@
     </div> </div>
 
 
-    <div class="container-fluid">
-      <div class="row">
         <div class="col-md-3 mb-4">
         
-        <img src="/img/produtos/{{$editar_produto->image}}" width="200px" />
         </div>
          <div class="col-md-3 mb-4">
 
             <div class="upload">
               <input type="file" title="" id="image" name="image"  class="drop-here">
-              <div class="text text-drop">Imagem</div>
+              <div class="text text-drop"> <img src="/img/produtos/{{$editar_produto->image}}" width="200px"  /> </div>
               
               <div class="text text-upload">Enviando</div>
               <svg class="progress-wrapper" width="300" height="300">

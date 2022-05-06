@@ -19,7 +19,7 @@
   top: 30px;
   left: 50px;
   z-index: 6;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(52, 18, 208, 0.5);
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 12px;
@@ -29,7 +29,7 @@
   background: rgba(0, 0, 0, 0.1);
   line-height: 1;
   cursor: pointer;
-  text-shadow: 0 1px 0px rgba(255, 255, 255, 0.1);
+  text-shadow: 0 1px 0px rgba(14, 43, 230, 0.248);
 }
 .contact-form {
   position: absolute;
@@ -299,25 +299,38 @@ form input[type=submit] {
      
       @if (session('msg'))
       <center>
-      <div class="alert alert-primar alert-dismissible fade show" role="alert">
+      <div class="alert alert-primary alert-dismissible fade show" role="alert">
       <p class="msg">
    <strong>Mensagem:</strong> {{session('msg')}}  </center>
       @endif
       </div>
+
+        
+  
+      @empty($criar_empresa)
+      aaaa
+      @else
+      bbbb
+        @endif
+
+
+
 {{-- 
+  @if (is_null($criar_empresas->id)) 
 
 
       @foreach ($orcamento as $orcamentos)
 
       @if ($orcamentos->empresa_id == 1)  --}}
-     
-   
+      
+      
       @foreach ($criar_empresa as $criar_empresas)
+
 
    <!-- partial:index.partial.html -->
 <div class="cards">
 	
-	<div class="contact">Clique para editar as informções da sua empresa</div>
+	<div class="contact">Clique para editar as informações da sua empresa</div> <br>
   <br>
 	<div class="contact-form">
 		<a href="#" class="close"><i class="fa fa-times"></i></a>
@@ -334,7 +347,7 @@ form input[type=submit] {
      
       <div class="upload">
         <input type="file" title="" id="image" name="image"  class="drop-here">
-        <div class="text text-drop">LOGO<img src="/img/empresa/{{$criar_empresas->image}}" width="100%" />
+        <div class="text text-drop"><img src="/img/empresa/{{$criar_empresas->image}}" width="200px" />
         </div>
         
         <div class="text text-upload">Enviando</div>
@@ -346,7 +359,7 @@ form input[type=submit] {
         </svg>
         <div class="shadow"></div>
       </div>
-      
+      <br>
 
        <button class="btn btn-primary" type="submit">Salvar</button>
 
@@ -356,7 +369,7 @@ form input[type=submit] {
   <div class="card w-5">
     <div class="card-body">
       <h5 class="card-title">
-        <img src="/img/empresa/{{$criar_empresas->image}}" width="100%" />
+        <img src="/img/empresa/{{$criar_empresas->image}}" width="200px" />
         
       <h5 class="display-5"> <b> Nome da Empresa: </b> {{$criar_empresas->Nome_Empresa}}</h5>
                               
@@ -372,7 +385,7 @@ form input[type=submit] {
 	
 
 	<div class="card" id="dribbble">
-		<a class="card-toggle"><i><span class="fa fa-dribbble"></span></i></a>
+		<a class="card-toggle"><i><span class="fa fa-facebook"></span></i></a>
 		<div class="card-content">
 			<div class="row">
 				<div class="left col">
@@ -387,7 +400,7 @@ form input[type=submit] {
 	</div> 
 	
 	<div class="card" id="behance">
-		<a class="card-toggle"><i><span class="fa fa-behance"></span></i></a>
+		<a class="card-toggle"><i><span class="fa fa-instagram"></span></i></a>
 		<div class="card-content">
 			<div class="row">
 				<div class="left col">
@@ -425,18 +438,11 @@ form input[type=submit] {
 		</div>
 	</div>
 	
+  @endforeach
 
-
-      OIIII ;)sdsdsdsd
   
-      
-      
-      
-      @endforeach
-      OIIII ;)sdsdsdsd
-      OIIII ;)sdsdsdsd
-      OIIII ;)sdsdsdsd
-    
+
+  
 <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
    

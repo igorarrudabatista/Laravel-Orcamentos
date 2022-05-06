@@ -90,7 +90,7 @@ class Empresa_ClienteController extends Controller
        ->update($request->all());
 
 
-        return redirect('/empresa/show_clientes')->with('msg', 'Orçamento editado com sucesso!');
+        return redirect('/empresa/show_clientes')->with('msg', 'Cliente editado com sucesso!');
 
     }
 
@@ -99,7 +99,7 @@ class Empresa_ClienteController extends Controller
     public function destroy($id){
 
         Empresa_cliente::findOrFail($id) -> delete();
-        return redirect('/empresa/show_clientes')->with('msg', 'Produto deletado com sucesso!');
+        return redirect('/empresa/show_clientes')->with('msg', 'Cliente deletado com sucesso!');
     }
 
 }
