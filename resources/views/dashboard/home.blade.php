@@ -16,17 +16,17 @@
 }
 
 .card--1 .card__img, .card--1 .card__img--hover {
-    background-image: url('/img/dashboard/orders.jpg');
+    background-image: url('{{asset('/img/dashboard/orders.jpg')}}');
 }
 
 .card--2 .card__img, .card--2 .card__img--hover {
-    background-image: url('/img/dashboard/empresa.jpg');
+    background-image: url('{{asset('/img/dashboard/empresa.jpg')}}');
 }
 .card--3 .card__img, .card--3 .card__img--hover {
-    background-image: url('/img/dashboard/produto.jpg');
+    background-image: url('{{asset('/img/dashboard/produto.jpg')}}');
 }
 .card--4 .card__img, .card--4 .card__img--hover {
-    background-image: url('/img/dashboard/orders.jpg');
+    background-image: url('{{asset('/img/dashboard/orders.jpg')}}');
 }
 
 

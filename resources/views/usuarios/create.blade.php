@@ -101,7 +101,7 @@
       </button>
 
         <div class="product-cell image">
-          <img src="/storage/profile-photos/{{$usu->profile_photo_path }}" width="50px"class="rounded-circle" alt="Account"> 
+          <img src="{{ $usu->profile_path }}" width="50px"class="rounded-circle" alt="Account"> 
         </div>
 
         <div class="product-cell category"><span class="cell-label">Criado em:</span>{{$usu->name}}</div>
@@ -119,7 +119,7 @@
       <div class="product-cell what"><span class="cell-label">Ação:</span>  
   
   
-        <form action="/usuarios/{{$usu->id}}" method="POST">
+        <form action="{{asset('/usuarios/')}}/{{$usu->id}}" method="POST">
             
               @csrf
             @method('DELETE')

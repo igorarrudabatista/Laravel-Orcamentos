@@ -6,7 +6,7 @@
     @if ($search)
     <h1 class="app-content-headerText">Resultado da busca: {{$search}} </h1>
 
-    <a href="/orcamento/show_orcamento"> <button class="btn">Limpar pesquisa</button> </a>
+    <a href="{{asset('/orcamento/show_orcamento')}}"> <button class="btn">Limpar pesquisa</button> </a>
 
       @else
       <h1 class="app-content-headerText">Todos os Orçamentos</h1>
@@ -25,7 +25,7 @@
 
 
     <div class="app-content-actions">
-       <form action="/orcamento/show_orcamento" method="GET">
+       <form action="{{asset('/orcamento/show_orcamento')}}" method="GET">
       <input class="search-bar" placeholder="Número do orçamento" id="search" name="search" type="text">
       
         </form>
@@ -127,7 +127,8 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
         </button>
           <div class="product-cell image">
-          <a href="/orcamento/edit/{{$order->Numero_Orcamento}}"> <img src="/img/orcamento/orcamento.jpeg" > </a>
+          <a href="{{asset('/orcamento/edit/')}}/{{$order->Numero_Orcamento}}">
+             <img src="{{asset('/img/orcamento/orcamento.jpeg')}}" > </a>
          
     
 
@@ -139,9 +140,9 @@
         <div class="product-cell stock"><span class="cell-label">Garantia:</span>{{$order->Garantia}} </div>
         <div class="product-cell price"><span class="cell-label">Valor:</span> R$ {{$order->Valor}}  </div>
         <div class="product-cell acao"><span class="cell-label">Ação:</span>  
-        <a href="/orcamento/edit/{{$order->id}}" class="btn btn-info edit-btn"> <ion-icon name="create-outline"></ion-icon> Editar </a>&nbsp
+        <a href="{{asset('/orcamento/edit/')}}/{{$order->id}}" class="btn btn-info edit-btn"> <ion-icon name="create-outline"></ion-icon> Editar </a>&nbsp
         
-        <form action="/orcamento/{{$order->id}}" method="POST">
+        <form action="{{asset('/orcamento/')}}/{{$order->id}}" method="POST">
         @csrf
         @method('DELETE')
 
@@ -153,10 +154,10 @@
     Gerar PDF
   </button>
   <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-    <a class="dropdown-item" href="/orcamento/modelos/modelo1/{{$order->id}}">Modelo 1</a>
-    <a class="dropdown-item" href="/orcamento/modelos/modelo2/{{$order->id}}">Modelo 2</a>
-    <a class="dropdown-item" href="/orcamento/modelos/modelo3/{{$order->id}}">Modelo 3</a>
-    <a class="dropdown-item" href="/orcamento/modelos/modelo4/{{$order->id}}">Modelo 4</a>
+    <!-- <a class="dropdown-item" href="{{asset('/orcamento/modelos/modelo1/')}}/{{$order->id}}">Modelo 1</a> -->
+    <!-- <a class="dropdown-item" href="{{asset('/orcamento/modelos/modelo2/')}}/{{$order->id}}">Modelo 2</a> -->
+    <a class="dropdown-item" href="{{asset('/orcamento/modelos/modelo3/')}}/{{$order->id}}">Modelo 1</a>
+    <a class="dropdown-item" href="{{asset('/orcamento/modelos/modelo4/')}}/{{$order->id}}">Modelo 2</a>
   </div>
 </div>
 

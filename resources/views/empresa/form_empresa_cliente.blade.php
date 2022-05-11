@@ -53,7 +53,7 @@
 
 
 
-    <form action="/empresa" method="POST" enctype="multipart/form-data">
+    <form action="{{asset('/empresa')}}" method="POST" enctype="multipart/form-data">
       @csrf
   <div class="form-row">
     <div class="col-md-4 mb-3">

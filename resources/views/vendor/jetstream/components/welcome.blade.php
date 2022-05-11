@@ -10,7 +10,7 @@
     </div>
 
     <div class="mt-6 text-gray-500">
-        <form method="POST" action="/minha_empresa" enctype="multipart/form-data">
+        <form method="POST" action="{{asset ('/minha_empresa')}}" enctype="multipart/form-data">
             @csrf
 
             <div>

@@ -60,8 +60,10 @@
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 3px 5px 20px rgba(0, 0, 0, 0.2);
-  width: 768px;
-  height: 800px;
+  width: 968px;
+  height: 14006
+  
+  00px;
   position: relative;
   display: flex;
   align-items: flex-end;
@@ -261,7 +263,9 @@ form input[type=submit] {
     <div class="app-content-actions">
       <div class="app-content-actions-wrapper">
         <div class="filter-button-wrapper">
-          <button class="action-button filter jsFilter"><span>Filter</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></button>
+          <button class="action-button filter jsFilter">
+            <span>Filter</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></button>
           <div class="filter-menu">
             <label>Categoria</label>
             <select>
@@ -334,7 +338,7 @@ form input[type=submit] {
   <br>
 	<div class="contact-form">
 		<a href="#" class="close"><i class="fa fa-times"></i></a>
-    <form action="/minha_empresa/form_empresa/update/{{$criar_empresas->id}}" method="POST" enctype="multipart/form-data">
+    <form action="{{asset('/minha_empresa/form_empresa/update/')}}/{{$criar_empresas->id}}" method="POST" enctype="multipart/form-data">
       @csrf
       @method('PUT')
 			<div class="control">
@@ -344,10 +348,14 @@ form input[type=submit] {
 			<div class="control"><input type="text"  value="{{$criar_empresas->Telefone}}" name="Telefone" placeholder="Telefone" onkeypress="$(this).mask('(00) 00000-00009')" /></div>
 			<div class="control"><input type="text"  value="{{$criar_empresas->Email}}" name="Email"placeholder="E-mail@dominio.com" /></div>
 			<div class="control"><input type="text"  value="{{$criar_empresas->Site}}" name="Site"placeholder="www.site.com" /></div>
-     
+			<div class="control"><input type="text"  value="{{$criar_empresas->instagram_url}}" name="instagram_url"placeholder="Instagram" /></div>
+			<div class="control"><input type="text"  value="{{$criar_empresas->facebook_url}}" name="facebook_url"placeholder="Facebook" /></div>
+			<div class="control"><input type="text"  value="{{$criar_empresas->linkedin_url}}" name="linkedin_url"placeholder="Linkedin" onkeypress="$(this).mask('https://linkedin.com/')"/></div>
+      
       <div class="upload">
         <input type="file" title="" id="image" name="image"  class="drop-here">
-        <div class="text text-drop"><img src="/img/empresa/{{$criar_empresas->image}}" width="200px" />
+        <div class="text text-drop">
+          <img src="{{asset('/img/empresa/')}}/{{$criar_empresas->image}}" width="200px" />
         </div>
         
         <div class="text text-upload">Enviando</div>
@@ -369,7 +377,7 @@ form input[type=submit] {
   <div class="card w-5">
     <div class="card-body">
       <h5 class="card-title">
-        <img src="/img/empresa/{{$criar_empresas->image}}" width="200px" />
+        <img src="{{asset('/img/empresa/')}}/{{$criar_empresas->image}}" width="200px" />
         
       <h5 class="display-5"> <b> Nome da Empresa: </b> {{$criar_empresas->Nome_Empresa}}</h5>
                               
@@ -377,6 +385,7 @@ form input[type=submit] {
       <p class="card-text"> <b> Telefone: </b> {{$criar_empresas->Telefone}}</p>
       <p class="card-text"> <b> E-mail: </b>   {{$criar_empresas->Email}}</p>
       <p class="card-text"> <b> Site: </b>     {{$criar_empresas->Site}}</p>
+
 
 <hr>
 

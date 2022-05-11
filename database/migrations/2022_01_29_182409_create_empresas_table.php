@@ -21,6 +21,10 @@ class CreateEmpresasTable extends Migration
             $table->string('Telefone')->nullable();
             $table->string('Site')->nullable();;
             $table->string('image')->nullable();
+            $table->string('facebook_url')->nullable();
+            $table->string('instagram_url')->nullable();
+            $table->string('linkedin_url')->nullable();
+
             $table->timestamps();
         });
     }

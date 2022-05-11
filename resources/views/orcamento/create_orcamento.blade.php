@@ -66,7 +66,7 @@
 
 
 
-    <form action="/orcamento/" method="POST" >
+    <form action="{{asset('/orcamento/')}}" method="POST" >
       @csrf
 
       <div class="form-row">
@@ -127,7 +127,7 @@
                   <select name="products[]"  class="form-control id_select2_example"  >
                     <option value="">-- Selecione o produto --</option>
                      @foreach ($produto as $produtos)
-                    <option value="{{$produtos->id}}" data-img_ssrc="/img/produtos/{{$produtos->image}}">  
+                    <option value="{{$produtos->id}}" data-img_ssrc="{{asset('/img/produtos/')}}/{{$produtos->image}}">  
                        {{$produtos->Nome_Produto}} - R$ {{$produtos->Preco_Produto}} 
                       @endforeach 
                     </option>

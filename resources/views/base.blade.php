@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <title>Sistema I/O</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  {{-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> --}}
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/upload-style.css">
-<link rel="stylesheet" href="/css/dash-style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="{{asset('/css/style.css')}}">
+<link rel="stylesheet" href="{{asset('/css/upload-style.css')}}">
+<link rel="stylesheet" href="{{asset('/css/dash-style.css')}}">
 
 </head>
 <body>
@@ -23,7 +23,7 @@
     </div>
     <ul class="sidebar-list">
       <li class="sidebar-list-item">
-        <a href="/">
+        <a href="{{asset('/')}}">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           <span>Home</span>
@@ -38,15 +38,15 @@
  <span class="nav-label"> Empresa</span>
  <span class="caret"> </span> </a>
             <ul class="dropdown-menu sidebar-list">
-                {{-- <li class="sidebar-list-item"> <a href="/cadastrar_empresa">Cadastrar a Minha Empresa</a></li> --}}
-                <li class="sidebar-list-item"> <a href="/minha_empresa/form_empresa">Ver a Minha Empresa</a></li>
-                <li class="sidebar-list-item"> <a href="/empresa/form_empresa_cliente"> Cadastrar Clientes </a></li>
-                <li class="sidebar-list-item"> <a href="/empresa/show_clientes"> Ver Clientes </a></li>
+                {{-- <li class="sidebar-list-item"> <a href="{{asset('/cadastrar_empresa')}}">Cadastrar a Minha Empresa</a></li> --}}
+                <li class="sidebar-list-item"> <a href="{{asset('/minha_empresa/form_empresa')}}">Ver a Minha Empresa</a></li>
+                <li class="sidebar-list-item"> <a href="{{asset('/empresa/form_empresa_cliente')}}"> Cadastrar Clientes </a></li>
+                <li class="sidebar-list-item"> <a href="{{asset('/empresa/show_clientes')}}"> Ver Clientes </a></li>
 
             </ul>
       </li>
       <li class="sidebar-list-item">
-        <a href="/usuarios">
+        <a href="{{asset('/usuarios')}}">
           <svg class="svg-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather ">
             <path fill="none" d="M14.023,12.154c1.514-1.192,2.488-3.038,2.488-5.114c0-3.597-2.914-6.512-6.512-6.512
               c-3.597,0-6.512,2.916-6.512,6.512c0,2.076,0.975,3.922,2.489,5.114c-2.714,1.385-4.625,4.117-4.836,7.318h1.186
@@ -70,8 +70,8 @@
  <span class="nav-label"> Produtos</span>
  <span class="caret"> </span> </a>
             <ul class="dropdown-menu sidebar-list">
-                <li class="sidebar-list-item"> <a href="/produtos/create">Criar Produto</a></li>
-                <li class="sidebar-list-item"> <a href="/produtos/produtos">Ver Produtos</a></li>
+                <li class="sidebar-list-item"> <a href="{{asset('/produtos/create')}}">Criar Produto</a></li>
+                <li class="sidebar-list-item"> <a href="{{asset('/produtos/produtos')}}">Ver Produtos</a></li>
             </ul>
       </li>
 
@@ -83,12 +83,12 @@
  <span class="nav-label"> Orçamentos</span>
  <span class="caret"> </span> </a>
             <ul class="dropdown-menu sidebar-list">
-                <li class="sidebar-list-item"> <a href="/orcamento/create_orcamento">Criar Orçamento</a></li>
-                <li class="sidebar-list-item"> <a href="/orcamento/show_orcamento">Ver Orcamentos</a></li>
+                <li class="sidebar-list-item"> <a href="{{asset('/orcamento/create_orcamento')}}">Criar Orçamento</a></li>
+                <li class="sidebar-list-item"> <a href="{{asset('/orcamento/show_orcamento')}}">Ver Orçamentos</a></li>
             </ul>
       </li>
       <li class="sidebar-list-item">
-        <a href="/informacoes">
+        <a href="{{asset('/informacoes')}}">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
             <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
           <span>Informações</span>
@@ -97,7 +97,7 @@
     </ul>
     <div class="account-info">
       <div class="account-info-picture">
- <img src="{{ Auth::user()->profile_photo_url }}" alt="Account"> 
+ <img src="{{Auth::user()->profile_photo_path}}" alt="Account"> 
       </div>
     <div class="account-info-name"> {{ Auth::user()->name }}</div> 
     
@@ -136,9 +136,9 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-<script src="/js/script.js"></script>
-<script src="/js/upload-script.js"></script>
-<script src="/js/form-empresa-script.js"></script>
+<script src="{{asset('/js/script.js')}}"></script>
+<script src="{{asset('/js/upload-script.js')}}"></script>
+<script src="{{asset('/js/form-empresa-script.js')}}"></script>
   
 
    <script> 

@@ -66,7 +66,7 @@
 
 
 
-    <form action="/orcamento/update/{{$editar_orcamento->id}}" method="POST" enctype="multipart/form-data">
+    <form action="{{asset('/orcamento/update/')}}/{{$editar_orcamento->id}}" method="POST" enctype="multipart/form-data">
       @csrf
       @method('PUT')
 

@@ -17,14 +17,14 @@ class CreateOrcamentosTable extends Migration
             
             $table->increments('id');
             $table->string('Numero_Orcamento');
-            $table->string('Data');
-            $table->string('Validade');
-            $table->string('Garantia');
-            $table->string('Forma_Pagamento');
-            $table->string('Descricao');
+            $table->string('Data')->nullable();
+            $table->string('Validade')->nullable();
+            $table->string('Garantia')->nullable();
+            $table->string('Forma_Pagamento')->nullable();
+            $table->string('Descricao')->nullable();
 //          $table->double('Valor');
-            $table->double('Desconto');
-            $table->double('Taxas');
+            $table->double('Desconto')->nullable();
+            $table->double('Taxas')->nullable();
 
             // $table->unsignedInteger('empresa_id');
             // $table->foreign('empresa_id')->references('id')->on('empresas');

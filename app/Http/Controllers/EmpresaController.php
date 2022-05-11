@@ -39,12 +39,15 @@ class EmpresaController extends Controller
 
         $criar_empresa =  new Empresa;
 
-        $criar_empresa -> Nome_Empresa       = $request->Nome_Empresa;
-        $criar_empresa -> Cnpj               = $request->Cnpj;
-        $criar_empresa -> Email              = $request->Email;
-        $criar_empresa -> Telefone           = $request->Telefone;
-        $criar_empresa -> Site               = $request->Site;
-        $criar_empresa -> image              = $request->image;
+        $criar_empresa -> Nome_Empresa              = $request->Nome_Empresa;
+        $criar_empresa -> Cnpj                      = $request->Cnpj;
+        $criar_empresa -> Email                     = $request->Email;
+        $criar_empresa -> Telefone                  = $request->Telefone;
+        $criar_empresa -> Site                      = $request->Site;
+        $criar_empresa -> image                     = $request->image;
+        $criar_empresa -> linkedin_url              = $request->linkedin_url;
+        $criar_empresa -> facebook_url              = $request->facebook_url;
+        $criar_empresa -> instagram_url             = $request->instagram_url;
 
 
                 // Imagem do produto upload
@@ -95,12 +98,16 @@ class EmpresaController extends Controller
     public function update (Request $request, $id){
 
                         $criar_empresa = Empresa::find($id);
-                        $criar_empresa -> Nome_Empresa       = $request->Nome_Empresa;
-                        $criar_empresa -> Cnpj               = $request->Cnpj;
-                        $criar_empresa -> Email              = $request->Email;
-                        $criar_empresa -> Telefone           = $request->Telefone;
-                        $criar_empresa -> Site               = $request->Site;
-                        $criar_empresa -> image              = $request->image;
+                        $criar_empresa -> Nome_Empresa              = $request->Nome_Empresa;
+                        $criar_empresa -> Cnpj                      = $request->Cnpj;
+                        $criar_empresa -> Email                     = $request->Email;
+                        $criar_empresa -> Telefone                  = $request->Telefone;
+                        $criar_empresa -> Site                      = $request->Site;
+                        $criar_empresa -> image                     = $request->image;
+                        $criar_empresa -> linkedin_url              = $request->linkedin_url;
+                        $criar_empresa -> facebook_url              = $request->facebook_url;
+                        $criar_empresa -> instagram_url             = $request->instagram_url;
+                
 
                         // Imagem do produto upload
                         if ($request->hasFile('image')&& $request->file('image')->isValid()){

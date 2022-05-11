@@ -208,8 +208,10 @@
                     <div id="invoice">
                         <div class="toolbar hidden-print">
                             <div class="text-end">
-                                <button type="button" class="btn btn-dark"><i class="fa fa-print"></i> Print</button>
-                                <button type="button" class="btn btn-danger"><i class="fa fa-file-pdf-o"></i> Export as PDF</button>
+                                <button type="button" class="btn btn-dark">
+                                    <i class="fa fa-print"></i> Imprimir</button>
+                                <!-- <button type="button" class="btn btn-danger"> -->
+                                    <!-- <i class="fa fa-file-pdf-o"></i> Export as PDF</button> -->
                             </div>
                             <hr>
                         </div>
@@ -219,13 +221,13 @@
                             <header>
                                 <div class="row">
                                     <div class="col">
-                                        <img src="/img/empresa/{{$orcamento->empresa->image}}" width="80" alt=""> 
                                     </a>
                                 </div>
                                 <div class="col company-details">
                                     <h2 class="name">
-                                        
-                                                    {{$orcamento->empresa->Nome_Empresa ?? ''}}
+                                    <img src="{{asset('/img/empresa/')}}/{{$orcamento->empresa->image}}" width="200px" alt=""> 
+                                        <br>
+                                        {{$orcamento->empresa->Nome_Empresa ?? ''}}
                                         </a>
                                         </h2>
                                         <div>{{$orcamento->empresa->Cnpj ?? ''}}</div>
@@ -241,6 +243,8 @@
                             <div class="row contacts">
                                     <div class="col invoice-to">
                                         <div class="text-gray-light">Orçamento para: </div>
+                                        <img src="{{asset('/img/empresa/')}}/{{$orcamento->empresa_cliente->image}}" width="200px" alt=""> 
+                                        <br>
                                         <h2 class="to"> {{$orcamento->empresa_cliente->Nome_Empresa ?? ''}} </h2>
                                         <div class="address"> Endereço:{{$orcamento->empresa_cliente->Endereco ?? ''}} | {{$orcamento->empresa_cliente->Cidade ?? ''}} - {{$orcamento->empresa_cliente->Estado}} </div>
                                         <div class="email"><a href="mailto:john@example.com">{{$orcamento->empresa_cliente->Email ?? ''}}</a>

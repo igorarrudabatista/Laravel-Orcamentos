@@ -20,7 +20,7 @@
 
 
     <div class="app-content-actions">
-       <form action="/empresa/show_empresa" method="GET">
+       <form action="{{asset('/empresa/show_empresa')}}" method="GET">
       <input class="search-bar" placeholder="Nome do cliente" id="search" name="search" type="text">
         </form>
 
@@ -28,7 +28,9 @@
 
       <div class="app-content-actions-wrapper">
         <div class="filter-button-wrapper">
-          <button class="action-button filter jsFilter"><span>Filter</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></button>
+          <button class="action-button filter jsFilter">
+            <span>Filter</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></button>
           <div class="filter-menu">
             <label>Categoria</label>
             <select>
@@ -115,7 +117,8 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
         </button>
           <div class="product-cell image">
-          <a href="/empresa/edit/{{$empresa_clientes->id}}"> <img src="/img/empresa/{{$empresa_clientes->image}}" > </a>
+          <a href="{{asset('/empresa/edit/')}}/{{$empresa_clientes->id}}"> 
+            <img src="{{asset('/img/empresa/')}}/{{$empresa_clientes->image}}" > </a>
             <span>{{$empresa_clientes->Nome_empresa}}</span>
           </div>
         <div class="product-cell category"><span class="cell-label">Nome Empresa:</span>{{$empresa_clientes->Nome_Empresa}}</div>
@@ -124,9 +127,11 @@
         <div class="product-cell stock"><span class="cell-label">Cnpj:</span>{{$empresa_clientes->Cnpj}} </div>
         <div class="product-cell price"><span class="cell-label">E-mail:</span>  {{$empresa_clientes->Email}} @ </div>
         <div class="product-cell acao"><span class="cell-label">Ação:</span>  
-        <a href="/empresa/edit/{{$empresa_clientes->id}}" class="btn btn-info edit-btn"> <ion-icon name="create-outline"></ion-icon> Editar </a>&nbsp
         
-        <form action="/empresa/{{$empresa_clientes->id}}" method="POST">
+        <a href="{{asset('/empresa/edit/')}}/{{$empresa_clientes->id}}" class="btn btn-info edit-btn">
+           <ion-icon name="create-outline"></ion-icon> Editar </a>&nbsp
+        
+        <form action="{{asset('/empresa/')}}/{{$empresa_clientes->id}}" method="POST">
         @csrf
         @method('DELETE')
 

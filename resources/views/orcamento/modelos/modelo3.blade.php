@@ -63,7 +63,7 @@ body {
                 <div class="card-body">
                     <div class="row mb-4">
                         <div class="col-sm-4">
-                            <h6 class="mb-3"> <strong><img src="/img/empresa/{{$orcamento->empresa->image}}" width="80" alt=""> 
+                            <h6 class="mb-3"> <strong><img src="{{asset('/img/empresa/')}}/{{$orcamento->empresa->image}}" width="80" alt=""> 
                             </strong></h6>
                             <div><strong> {{$orcamento->empresa->Nome_Empresa ?? ''}}</strong></div>
                             <div>CNPJ: {{$orcamento->empresa->Cnpj ?? ''}}</div>
@@ -71,7 +71,7 @@ body {
                             <div>Email: {{$orcamento->empresa->Email ?? ''}}</div>
                         </div>
                         <div class="col-sm-4">
-                            <h6 class="mb-3"><strong><img src="/img/empresa/{{$orcamento->empresa_cliente->image}}" width="80" alt=""> 
+                            <h6 class="mb-3"><strong><img src="{{asset('/img/empresa/')}}/{{$orcamento->empresa_cliente->image}}" width="80" alt=""> 
                             </strong></h6>
                             <div><strong>{{$orcamento->empresa_cliente->Nome_Empresa ?? ''}}</strong></div>
                             <div>CNPJ: {{$orcamento->empresa_cliente->Cnpj ?? ''}}</div>
@@ -121,7 +121,8 @@ body {
                         </table>
                     </div>
                     <div class="row">
-                        <div class="col-lg-4 col-sm-5">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia.</div>
+                        <div class="col-lg-12 col-sm-4">
+                            <!-- Obrigado!!! -->
                         <div class="col-lg-4 col-sm-5 ml-auto">
                             <table class="table table-clear">
                                 <tbody>

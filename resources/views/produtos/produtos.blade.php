@@ -15,12 +15,12 @@
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
         </svg>
       </button>
-      <a href="/produtos/create"> <button class="app-content-headerButton">Adicionar Produto</button> </a>
+      <a href="{{asset('/produtos/create')}}"> <button class="app-content-headerButton">Adicionar Produto</button> </a>
     </div>
 
 
     <div class="app-content-actions">
-       <form action="/produtos/produtos" method="GET">
+       <form action="{{asset('/produtos/produtos')}}" method="GET">
       <input class="search-bar" placeholder="Nome do produto" id="search" name="search" type="text">
         </form>
 
@@ -28,7 +28,9 @@
 
       <div class="app-content-actions-wrapper">
         <div class="filter-button-wrapper">
-          <button class="action-button filter jsFilter"><span>Filter</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></button>
+          <button class="action-button filter jsFilter">
+            <span>Filter</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></button>
           <div class="filter-menu">
             <label>Categoria</label>
             <select>
@@ -114,7 +116,8 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
         </button>
           <div class="product-cell image">
-          <a href="/produtos/edit/{{$Produto->id}}"> <img src="/img/produtos/{{$Produto->image}}" > </a>
+          <a href="{{asset('/produtos/edit/')}}/{{$Produto->id}}">
+             <img src="{{asset('/img/produtos/')}}/{{$Produto->image}}" > </a>
             <span>{{$Produto->Nome_Produto}}</span>
           </div>
         <div class="product-cell category"><span class="cell-label">Categoria:</span>{{$Produto->Categoria_Produto}}</div>
@@ -130,9 +133,9 @@
         <div class="product-cell stock"><span class="cell-label">Estoque:</span>{{$Produto->Estoque_Produto}}</div>
         <div class="product-cell price"><span class="cell-label">Preço:</span>R$ {{$Produto->Preço_Produto}}</div>
         <div class="product-cell what"><span class="cell-label">Ação:</span>  
-        <a href="/produtos/edit/{{$Produto->id}}" class="btn btn-info edit-btn"> <ion-icon name="create-outline"></ion-icon> Editar </a>&nbsp
+        <a href="{{asset('/produtos/edit/')}}/{{$Produto->id}}" class="btn btn-info edit-btn"> <ion-icon name="create-outline"></ion-icon> Editar </a>&nbsp
         
-        <form action="/produtos/{{$Produto->id}}" method="POST">
+        <form action="{{asset('/produtos/')}}/{{$Produto->id}}" method="POST">
         @csrf
         @method('DELETE')
 

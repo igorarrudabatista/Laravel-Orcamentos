@@ -10,27 +10,27 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="/" :active="request()->routeIs('/')">
+                    <x-jet-nav-link href="{{asset ('/')}}" :active="request()->routeIs('/')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="/empresa/show_clientes" :active="request()->routeIs('/empresa/show_clientes')">
+                    <x-jet-nav-link href="{{asset ('/empresa/show_clientes')}}" :active="request()->routeIs('/empresa/show_clientes')">
                         {{ __('Clientes') }}
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="/produtos/produtos" :active="request()->routeIs('/produtos/produtos')">
+                    <x-jet-nav-link href="{{asset ('/produtos/produtos')}}" :active="request()->routeIs('/produtos/produtos')">
                         {{ __('Produtos') }}
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="/orcamento/show_orcamento" :active="request()->routeIs('/orcamento/show_orcamento')">
+                    <x-jet-nav-link href="{{asset ('/orcamento/show_orcamento')}}" :active="request()->routeIs('/orcamento/show_orcamento')">
                         {{ __('Orçamentos') }}
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="/informacoes" :active="request()->routeIs('/informacoes')">
+                    <x-jet-nav-link href="{{asset ('/informacoes')}}" :active="request()->routeIs('/informacoes')">
                         {{ __('Informações') }}
                     </x-jet-nav-link>
                 </div>

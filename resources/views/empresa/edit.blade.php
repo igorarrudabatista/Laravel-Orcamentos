@@ -14,7 +14,9 @@
     <div class="app-content-actions">
       <div class="app-content-actions-wrapper">
         <div class="filter-button-wrapper">
-          <button class="action-button filter jsFilter"><span>Filter</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></button>
+          <button class="action-button filter jsFilter">
+            <span>Filter</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></button>
           <div class="filter-menu">
             <label>Categoria</label>
             <select>
@@ -53,7 +55,7 @@
 
 
 
-    <form action="/empresa/update/{{$editar_empresa->id}}" method="POST" enctype="multipart/form-data">
+    <form action="{{asset('/empresa/update/')}}{{$editar_empresa->id}}" method="POST" enctype="multipart/form-data">
       @csrf
       @method('PUT')
   <div class="form-row">
@@ -131,7 +133,7 @@
 
 <div class="upload">
   <input type="file" title="" id="image" name="image"  class="drop-here">
-  <div class="text text-drop"><img src="/img/empresa/{{$editar_empresa->image}}"></div>
+  <div class="text text-drop"><img src="{{asset('/img/empresa/')}}/{{$editar_empresa->image}}"></div>
   <div class="text text-upload">Enviando</div>
   <svg class="progress-wrapper" width="300" height="300">
     <circle class="progress" r="115" cx="150" cy="150"></circle>
